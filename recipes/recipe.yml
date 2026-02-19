@@ -15,19 +15,19 @@ modules:
         - vulkan-swrast
         - libva-intel-driver
         - intel-media-driver
-		- libvpl
-		- vpl-gpu-rt
-		- intel-media-sdk
-		# DE stuff
-		- xorg
-		- xfce4
-		- pasystray
-		- cbatticon
-		- obsidian-icon-theme
-		- kvantum-qt5
-		- kvantum
-		- qt5ct
-		- qt6ct
+        - libvpl
+        - vpl-gpu-rt
+        - intel-media-sdk
+        # DE stuff
+        - xorg
+        - xfce4
+        - pasystray
+        - cbatticon
+        - obsidian-icon-theme
+        - kvantum-qt5
+        - kvantum
+        - qt5ct
+        - qt6ct
   - type: script
     snippets:
       # Install script to make AUR package easily
