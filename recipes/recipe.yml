@@ -40,6 +40,8 @@ modules:
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh emerald"
       # Cleanup
       - "rm -r /tmp/arch-tools/"
+      # Other stuff
+      - "sed -i 's|bootc upgrade --apply --quiet|bootc upgrade --quiet|g' /usr/lib/systemd/system/bootc-fetch-apply-updates.service "
   - type: signing
   - type: script
     snippets:
