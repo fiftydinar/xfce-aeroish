@@ -28,6 +28,7 @@ modules:
         - kvantum
         - qt5ct
         - qt6ct
+        - gtk2 # needed for  libwnck
   - type: script
     snippets:
       # Install script to make AUR package easily
