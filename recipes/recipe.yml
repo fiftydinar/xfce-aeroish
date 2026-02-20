@@ -41,7 +41,9 @@ modules:
       # Cleanup
       - "rm -r /tmp/arch-tools/"
       # Other stuff
-      - "sed -i 's|bootc upgrade --apply --quiet|bootc upgrade --quiet|g' /usr/lib/systemd/system/bootc-fetch-apply-updates.service "
+      - "sed -i 's|bootc upgrade --apply --quiet|bootc upgrade --quiet|g' /usr/lib/systemd/system/bootc-fetch-apply-updates.service"
+      - |
+        sed -E -i "s/^(VERSION_ID=)(['\"]?)([0-9]{8}\.[0-9]+)\.([0-9]+)(['\"]?)/\\1\"\\3-\\4\"/" /etc/os-release
   - type: signing
   - type: script
     snippets:
