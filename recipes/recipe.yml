@@ -48,4 +48,6 @@ modules:
   - type: signing
   - type: script
     snippets:
-      - "pacman -Qi | awk -F': ' '/Name/ {n=$2} /Installed Size/ {s=$2} n && s {print n, s; n=s=""}' | column -t | grep MiB | sort -nk 2"
+      # Show all installed packages sorted by size
+      - |
+      pacman -Qi | awk -F': ' '/Name/ {n=$2} /Installed Size/ {s=$2} n && s {print n, s; n=s=""}' | column -t | grep MiB | sort -nk 2
