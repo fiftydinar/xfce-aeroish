@@ -21,6 +21,11 @@ modules:
         - libvpl
         - vpl-gpu-rt
         - intel-media-sdk
+        - virglrenderer
+        - qemu-guest-agent
+        - spice-vdagent
+        - xf86-video-qxl
+        - xf86-video-fbdev
         # DE stuff
         - xorg
         - xfce4
