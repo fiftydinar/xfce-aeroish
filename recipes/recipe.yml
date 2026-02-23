@@ -91,7 +91,7 @@ modules:
       # Set nano as the default editor
       - "echo -e 'VISUAL=nano\nEDITOR=nano' >> /etc/environment"
       # Disable coredumps (untransparent, can leak some undesired info and can bloat the storage size)
-      - "mkdir -p /usr/lib/systemd/system.conf.d /usr/lib/user/user.conf.d /usr/lib/sysctl.d"
+      - "mkdir -p /usr/lib/systemd/system.conf.d /usr/lib/user/user.conf.d /etc/security/limits.d /usr/lib/sysctl.d"
       - "echo -e '[Manager]\nDumpCore=no' > /usr/lib/systemd/system.conf.d/60-disable-coredump.conf"
       - "echo -e '[Manager]\nDumpCore=no' > /usr/lib/user/user.conf.d/60-disable-coredump.conf"
       - "echo -e '# Disable coredumps\n\n* hard core 0\n* soft core 0' > /etc/security/limits.d/60-disable-coredump.conf"
