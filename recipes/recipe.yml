@@ -18,6 +18,15 @@ modules:
         - libvpl
         - vpl-gpu-rt
         - intel-media-sdk
+        # Audio
+        - pipewire
+        - pipewire-audio
+        - pipewire-alsa
+        - pipewire-pulse
+        - pipewire-jack # pipewire-jack works worse than native jack, but it at least provides compatibility
+        - pipewire-libcamera
+        - pipewire-v4l2
+        - pipewire-ffado
         # DE stuff
         - xorg
         - xfce4
