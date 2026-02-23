@@ -27,7 +27,12 @@ modules:
         - pipewire-libcamera
         - pipewire-v4l2
         - pipewire-ffado
-        # DE stuff
+        # Bluetooth
+        - bluez
+        - bluez-obex
+        - bluez-mesh
+        - bluez-utils
+        # Desktop environment
         - xorg
         - xfce4
         - pasystray
@@ -70,6 +75,7 @@ modules:
     system:
       enabled:
         - arch-group-rebase-fix.service
+        - bluetooth.service
         - lightdm.service
   - type: signing
   - type: script
