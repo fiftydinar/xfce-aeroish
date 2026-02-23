@@ -27,16 +27,25 @@ modules:
         - pipewire-libcamera
         - pipewire-v4l2
         - pipewire-ffado
+        # Time
+        - chrony
+        # Network
+        - networkmanager
         # Bluetooth
         - bluez
         - bluez-obex
         - bluez-mesh
         - bluez-utils
+        # Virtual machines
+        - virtualbox-guest-utils
+        # Container
+        - distrobox
         # Desktop environment
         - xorg
         - xfce4
         - pasystray
         - cbatticon
+        - network-manager-applet
         - obsidian-icon-theme
         - kvantum-qt5
         - kvantum
@@ -44,18 +53,19 @@ modules:
         - qt6ct
         - lightdm
         - lightdm-gtk-greeter
-        # Debugging stuff
+        # Debugging
         - strace
   - type: script
     snippets:
       # Install script to make AUR package easily
       - "wget --directory-prefix=/tmp/arch-tools/ https://raw.githubusercontent.com/pkgforge-dev/Anylinux-AppImages/refs/heads/main/useful-tools/make-aur-package.sh"
       - "chmod +x /tmp/arch-tools/make-aur-package.sh"
-      # Install compiz, emerald
+      # Install compiz, emerald, networkmanager-dispatcher-chrony
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh gtk2"
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh libwnck"
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh compiz"
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh emerald"
+      - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh networkmanager-dispatcher-chrony"
       # Cleanup
       - "rm -r /tmp/arch-tools/"
       # Set bootc update service to not reboot on finished update
@@ -82,6 +92,7 @@ modules:
     system:
       enabled:
         - arch-group-rebase-fix.service
+        - NetworkManager.service
         - bluetooth.service
         - lightdm.service
   - type: signing
