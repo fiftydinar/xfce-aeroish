@@ -27,7 +27,7 @@ modules:
         - pipewire-libcamera
         - pipewire-v4l2
         - pipewire-ffado
-        # Time
+        # Time-sync
         - chrony
         # Network
         - networkmanager
@@ -73,7 +73,6 @@ modules:
       # Set bootc update service to not reboot on finished update
       - "sed -i 's|bootc upgrade --apply --quiet|bootc upgrade --quiet|g' /usr/lib/systemd/system/bootc-fetch-apply-updates.service"
       # Fix users and group after rebasing from non-Arch image # https://github.com/ExistingPerson08/arch-base
-      - "mkdir -p /usr/lib/systemd/system"
       - |
         echo -e '#!/bin/sh\ncat /usr/lib/sysusers.d/*.conf | grep -e "^g" | grep -v -e "^#" | awk "NF" | awk '\''{print $2}'\'' | grep -v -e "wheel" -e "root" -e "sudo" | xargs -I{} sed -i "/{}/d" "$1"' > /usr/libexec/arch-group-fix
       - "chmod +x /usr/libexec/arch-group-fix"
@@ -91,6 +90,10 @@ modules:
       - "echo -e 'pool pool.ntp.org iburst offline\ndriftfile /var/lib/chrony/drift\nmakestep 1.0 3\nrtcsync' > /etc/chrony.conf"
       # Set nano as the default editor
       - "echo -e 'VISUAL=nano\nEDITOR=nano' >> /etc/environment"
+      # Disable systemd coredumps (untransparent, can leak some undesired info and can bloat the storage size)
+      - "echo -e '[Manager]\nDumpCore=no' > /usr/lib/systemd/system.conf.d/60-disable-coredump.conf"
+      - "echo -e '[Manager]\nDumpCore=no' > /usr/lib/user/user.conf.d/60-disable-coredump.conf"
+      - "echo -e '# Disable coredumps\n\n* hard core 0\n* soft core 0' > /etc/security/limits.d/60-disable-coredump.conf"
       # Fix bootc-image-builder not liking 2 dots in VERSION_ID for some reason
       - |
         sed -E -i "s/^(VERSION_ID=)(['\"]?)([0-9]{8}\.[0-9]+)\.([0-9]+)(['\"]?)/\\1\"\\3-\\4\"/" /etc/os-release
@@ -99,11 +102,12 @@ modules:
       disabled:
         - systemd-timesyncd.service
       enabled:
-        - arch-group-rebase-fix.service
-        - NetworkManager.service
-        - chronyd.service
-        - bluetooth.service
-        - lightdm.service
+        - arch-group-rebase-fix.service # fix not booting on rebase (need to reboot again to take effect though, can be improved)
+        - NetworkManager.service # network handling
+        - systemd-resolved.service # DNS resolver
+        - chronyd.service # Time-sync
+        - bluetooth.service # Bluez Bluetooth service
+        - lightdm.service # Display manager
   - type: signing
   - type: script
     snippets:
