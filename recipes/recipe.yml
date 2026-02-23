@@ -90,7 +90,7 @@ modules:
       - "echo -e 'pool pool.ntp.org iburst offline\ndriftfile /var/lib/chrony/drift\nmakestep 1.0 3\nrtcsync' > /etc/chrony.conf"
       # Set nano as the default editor
       - "echo -e 'VISUAL=nano\nEDITOR=nano' >> /etc/environment"
-      # Disable systemd coredumps (untransparent, can leak some undesired info and can bloat the storage size)
+      # Disable coredumps (untransparent, can leak some undesired info and can bloat the storage size)
       - "echo -e '[Manager]\nDumpCore=no' > /usr/lib/systemd/system.conf.d/60-disable-coredump.conf"
       - "echo -e '[Manager]\nDumpCore=no' > /usr/lib/user/user.conf.d/60-disable-coredump.conf"
       - "echo -e '# Disable coredumps\n\n* hard core 0\n* soft core 0' > /etc/security/limits.d/60-disable-coredump.conf"
