@@ -94,6 +94,7 @@ modules:
       - "echo -e '[Manager]\nDumpCore=no' > /usr/lib/systemd/system.conf.d/60-disable-coredump.conf"
       - "echo -e '[Manager]\nDumpCore=no' > /usr/lib/user/user.conf.d/60-disable-coredump.conf"
       - "echo -e '# Disable coredumps\n\n* hard core 0\n* soft core 0' > /etc/security/limits.d/60-disable-coredump.conf"
+      - "echo 'kernel.core_pattern = |/bin/false' > /usr/lib/sysctl.d/55-disable-coredump.conf"
       # Fix bootc-image-builder not liking 2 dots in VERSION_ID for some reason
       - |
         sed -E -i "s/^(VERSION_ID=)(['\"]?)([0-9]{8}\.[0-9]+)\.([0-9]+)(['\"]?)/\\1\"\\3-\\4\"/" /etc/os-release
