@@ -98,7 +98,6 @@ modules:
         - arch-group-rebase-fix.service
         - NetworkManager.service
         - chronyd.service
-        - chrony-wait.service
         - bluetooth.service
         - lightdm.service
   - type: signing
