@@ -85,14 +85,20 @@ modules:
         sed -i 's/^#\s*\(en_US.UTF-8 UTF-8\)/\1/' /etc/locale.gen
       - "locale-gen"
       - "echo 'LANG=en_US.UTF-8' > /etc/locale.conf"
+      # Use custom chrony time config
+      - echo -e "pool pool.ntp.org iburst\ndriftfile /var/lib/chrony/drift\nmakestep 1.0 3\nrtcsync\noffline" > /etc/chrony.conf
       # Fix bootc-image-builder not liking 2 dots in VERSION_ID for some reason
       - |
         sed -E -i "s/^(VERSION_ID=)(['\"]?)([0-9]{8}\.[0-9]+)\.([0-9]+)(['\"]?)/\\1\"\\3-\\4\"/" /etc/os-release
   - type: systemd
     system:
+      disabled:
+        - systemd-timesyncd.service
       enabled:
         - arch-group-rebase-fix.service
         - NetworkManager.service
+        - chronyd.service
+        - chrony-wait.service
         - bluetooth.service
         - lightdm.service
   - type: signing
