@@ -44,6 +44,8 @@ modules:
         - qt6ct
         - lightdm
         - lightdm-gtk-greeter
+        # Debugging stuff
+        - strace
   - type: script
     snippets:
       # Install script to make AUR package easily
