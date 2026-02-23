@@ -69,7 +69,8 @@ modules:
       - |
         sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers || echo "%wheel ALL=(ALL:ALL) ALL" >> /etc/sudoers
       # XFCE doesn't have language settings, so set the default language to English and generate locale
-      - "sed -i 's/^#\s*\(en_US.UTF-8 UTF-8\)/\1/' /etc/locale.gen"
+      - |
+        sed -i 's/^#\s*\(en_US.UTF-8 UTF-8\)/\1/' /etc/locale.gen
       - "locale-gen"
       - "localectl set-locale LANG=en_US.UTF-8"
       # Fix bootc-image-builder not liking 2 dots in VERSION_ID for some reason
