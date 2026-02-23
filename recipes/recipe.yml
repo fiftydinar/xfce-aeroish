@@ -7,6 +7,9 @@ modules:
   - type: pacman
     install:
       packages:
+        # Bootloader stuff
+        - grub
+        - efibootmgr
         # GPU acceleration - OpenGL, Vulkan, video decoding/encoding (I won't cover proprietary Nvidia by default)
         - mesa
         - vulkan-radeon
