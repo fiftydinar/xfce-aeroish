@@ -57,11 +57,6 @@ modules:
   - type: signing
   - type: script
     snippets:
-      # Set graphical target as the default (LightDM)
-      - "systemctl set-default graphical.target"
-      # Show all systemd stuff (mounts, targets, sockets, services, timers)
-      - "systemctl list-unit-files --no-pager"
-      - "systemctl list-unit-files --global --no-pager"
       # Show all installed packages sorted by size
       - |
         pacman -Qi | awk -F': ' '/Name/ {n=$2} /Installed Size/ {s=$2} n && s {print n, s; n=s=""}' | column -t | grep MiB | sort -nk 2
