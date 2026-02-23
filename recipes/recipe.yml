@@ -47,16 +47,23 @@ modules:
       - "rm -r /tmp/arch-tools/"
       # Set bootc update service to not reboot on finished update
       - "sed -i 's|bootc upgrade --apply --quiet|bootc upgrade --quiet|g' /usr/lib/systemd/system/bootc-fetch-apply-updates.service"
-      # Set-up bootloader stuff # https://gitlab.com/fedora/ostree/ci-test/-/blob/main/bootupd.yaml
-      - "/usr/bin/bootupctl backend generate-update-metadata"
-      - "install -dm0755 /usr/lib/systemd/system/bootloader-update.service.d"
-      - "echo -e '[Service]\nExecStart=/usr/bin/bootupctl migrate-static-grub-config' > /usr/lib/systemd/system/bootloader-update.service.d/migrate-static-grub-config.conf"
+      # Fix users and group after rebasing from non-Arch image # https://github.com/ExistingPerson08/arch-base
+      - "mkdir -p /usr/lib/systemd/system-preset /usr/lib/systemd/system"
+      - |
+        echo -e '#!/bin/sh\ncat /usr/lib/sysusers.d/*.conf | grep -e "^g" | grep -v -e "^#" | awk "NF" | awk '\''{print $2}'\'' | grep -v -e "wheel" -e "root" -e "sudo" | xargs -I{} sed -i "/{}/d" "$1"' > /usr/libexec/arch-group-fix
+      - "chmod +x /usr/libexec/arch-group-fix"
+      - |
+        echo -e "[Unit]\nDescription=Fix groups\nDefaultDependencies=no\nAfter=local-fs.target\nBefore=sysinit.target\nWants=local-fs.target\n\n[Service]\nType=oneshot\nExecStart=/usr/libexec/arch-group-fix /etc/group\nExecStart=/usr/libexec/arch-group-fix /etc/gshadow\nExecStart=/usr/bin/systemd-sysusers\n\n[Install]\nWantedBy=sysinit.target" > /usr/lib/systemd/system/arch-group-fix.service
+      # Sudo for wheel group # https://github.com/ExistingPerson08/arch-base
+      - |
+        sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers || echo "%wheel ALL=(ALL:ALL) ALL" >> /etc/sudoers
       # Fix bootc-image-builder not liking 2 dots in VERSION_ID for some reason
       - |
         sed -E -i "s/^(VERSION_ID=)(['\"]?)([0-9]{8}\.[0-9]+)\.([0-9]+)(['\"]?)/\\1\"\\3-\\4\"/" /etc/os-release
   - type: systemd
     system:
       enabled:
+        - arch-group-fix.service
         - lightdm.service
   - type: signing
   - type: script
