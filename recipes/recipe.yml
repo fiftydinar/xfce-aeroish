@@ -7,9 +7,6 @@ modules:
   - type: pacman
     install:
       packages:
-        # bootloader stuff
-        - grub
-        - efibootmgr
         # GPU acceleration - OpenGL, Vulkan, video decoding/encoding (I won't cover proprietary Nvidia by default)
         - mesa
         - vulkan-radeon
@@ -45,8 +42,12 @@ modules:
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh emerald"
       # Cleanup
       - "rm -r /tmp/arch-tools/"
-      # Other stuff
+      # Set bootc update service to not reboot on finished update
       - "sed -i 's|bootc upgrade --apply --quiet|bootc upgrade --quiet|g' /usr/lib/systemd/system/bootc-fetch-apply-updates.service"
+      # Set-up bootloader stuff # https://gitlab.com/fedora/ostree/ci-test/-/blob/main/bootupd.yaml
+      - "/usr/bin/bootupctl backend generate-update-metadata"
+      - "install -dm0755 /usr/lib/systemd/system/bootloader-update.service.d"
+      - "echo -e '[Service]\nExecStart=/usr/bin/bootupctl migrate-static-grub-config' > /usr/lib/systemd/system/bootloader-update.service.d/migrate-static-grub-config.conf"
       # Fix bootc-image-builder not liking 2 dots in VERSION_ID for some reason
       - |
         sed -E -i "s/^(VERSION_ID=)(['\"]?)([0-9]{8}\.[0-9]+)\.([0-9]+)(['\"]?)/\\1\"\\3-\\4\"/" /etc/os-release
