@@ -62,12 +62,13 @@ modules:
       # Install script to make AUR package easily
       - "wget --directory-prefix=/tmp/arch-tools/ https://raw.githubusercontent.com/pkgforge-dev/Anylinux-AppImages/refs/heads/main/useful-tools/make-aur-package.sh"
       - "chmod +x /tmp/arch-tools/make-aur-package.sh"
-      # Install compiz, emerald, networkmanager-dispatcher-chrony
+      # Install compiz, emerald, networkmanager-dispatcher-chrony, gtk-nocsd-git
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh gtk2"
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh libwnck"
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh compiz"
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh emerald"
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh networkmanager-dispatcher-chrony"
+      - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh gtk-nocsd-git"
       # Cleanup
       - "rm -r /tmp/arch-tools/"
       # Set bootc update service to not reboot on finished update
@@ -90,6 +91,8 @@ modules:
       - "echo -e 'pool pool.ntp.org iburst offline\ndriftfile /var/lib/chrony/drift\nmakestep 1.0 3\nrtcsync' > /etc/chrony.conf"
       # Set nano as the default editor
       - "echo -e 'VISUAL=nano\nEDITOR=nano' >> /etc/environment"
+      # Set gtk nocsd by default
+      - "echo 'LD_PRELOAD=/usr/lib/libgtk-nocsd.so' >> /etc/environment"
       # Disable coredumps (untransparent, can leak some undesired info and can bloat the storage size)
       - "mkdir -p /usr/lib/systemd/system.conf.d /usr/lib/user/user.conf.d /etc/security/limits.d /usr/lib/sysctl.d"
       - "echo -e '[Manager]\nDumpCore=no' > /usr/lib/systemd/system.conf.d/60-disable-coredump.conf"
