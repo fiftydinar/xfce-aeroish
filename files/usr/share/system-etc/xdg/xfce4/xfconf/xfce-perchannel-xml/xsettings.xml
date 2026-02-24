@@ -1,6 +1,10 @@
 <?xml version="1.1" encoding="UTF-8"?>
 
 <channel name="xsettings" version="1.0">
+  <property name="Net" type="empty">
+    <property name="ThemeName" type="string" value="ReVista"/>
+    <property name="IconThemeName" type="string" value="Obsidian"/>
+  </property>
   <property name="Gtk" type="empty">
     <property name="CursorThemeName" type="string" value="aero-cursors"/>
   </property>
