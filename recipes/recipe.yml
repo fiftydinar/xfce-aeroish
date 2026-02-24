@@ -8,6 +8,8 @@ modules:
     files:
       - source: usr
         destination: /usr
+      - source: etc
+        destination: /etc
   - type: pacman
     install:
       packages:
