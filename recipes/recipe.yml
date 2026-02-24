@@ -103,8 +103,10 @@ modules:
       - "echo -e 'pool pool.ntp.org iburst offline\ndriftfile /var/lib/chrony/drift\nmakestep 1.0 3\nrtcsync' > /etc/chrony.conf"
       # Set nano as the default editor
       - "echo -e 'VISUAL=nano\nEDITOR=nano' >> /etc/environment"
-      # Set gtk nocsd by default
+      # Set gtk-nocsd by default
       - "echo 'LD_PRELOAD=/usr/lib/libgtk-nocsd.so' >> /etc/environment"
+      # Needed for gtk-nocsd (we don't preload tons of various libs like SteamOS, so we are safe)
+      - "echo 'SHARUN_ALLOW_LD_PRELOAD=1' >> /etc/environment"
       # Set QT apps to use qt{5-6}ct as platform theme (setting it to qt5ct works on both qt5 and qt6)
       - "echo 'QT_QPA_PLATFORMTHEME=qt5ct' >> /etc/environment"
       # Disable coredumps (untransparent, can leak some undesired info and can bloat the storage size)
