@@ -7,7 +7,7 @@ WIP
 WIP
 
 - Has `bootc` autoupdates enabled (runs and checks once a day)
-- Uses `compiz` compositor
+- Uses `compiz` as window manager and compositor
 
 ## How to install
 
