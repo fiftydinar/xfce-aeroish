@@ -119,12 +119,7 @@ modules:
       - |
         sed -i 's/value="xfwm4"/value="compiz"/g' /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-session.xml
       # Write default emerald config
-      - "mkdir -p /usr/share/emerald-defaults && echo -e '[buttons]\nuse_button_fade_pulse=true\n\n[decorations]\nblur_type=1' > /usr/share/emerald-defaults/settings.ini"
-      - |
-        echo -e '# Type  Path        Mode  UID  GID  Age  Argument\nC      %h/.emerald/       -     -    -    -    /usr/share/emerald-defaults/' > /usr/lib/tmpfiles.d/20-emerald.conf
-      # Workaround for complaint about /usr/etc to /etc merge, even when all files are in /etc
-      - |
-        echo -e '# Type  Path        Mode  UID  GID  Age  Argument\nC      /etc/       -     -    -    -    /usr/share/system-etc/' > /usr/lib/tmpfiles.d/20-system-etc-to-etc.conf
+      - "mkdir -p /etc/skel/.emerald && echo -e '[buttons]\nuse_button_fade_pulse=true\n\n[decorations]\nblur_type=1' > /etc/skel/.emerald/settings.ini"
       # Fix bootc-image-builder not liking 2 dots in VERSION_ID for some reason
       - |
         sed -E -i "s/^(VERSION_ID=)(['\"]?)([0-9]{8}\.[0-9]+)\.([0-9]+)(['\"]?)/\\1\"\\3-\\4\"/" /etc/os-release
