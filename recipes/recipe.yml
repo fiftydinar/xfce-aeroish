@@ -4,6 +4,10 @@ base-image: ghcr.io/fiftydinar/arch-bootc
 image-version: latest
 
 modules:
+  - type: files
+    files:
+      - source: usr
+        destination: /usr
   - type: pacman
     install:
       packages:
