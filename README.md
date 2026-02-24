@@ -4,8 +4,10 @@ WIP
 
 ## Highlights
 
-- Has `bootc` autoupdates enabled
-- WIP
+WIP
+
+- Has `bootc` autoupdates enabled (runs and checks once a day)
+- Uses `compiz` compositor
 
 ## How to install
 
