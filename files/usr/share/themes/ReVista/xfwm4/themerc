@@ -1,0 +1,13 @@
+# vienna basic theme for xfwm
+# https://github.com/danil275487/vienna-xfwm-theme
+shadow_opacity=0
+full_width_title=false
+title_alignment=left
+show_app_icon=true
+title_vertical_offset_active=4
+title_vertical_offset_inactive=4
+title_horizontal_offset=3
+frame_border_top=9
+maximized_offset=2
+button_offset=2
+button_spacing=2
