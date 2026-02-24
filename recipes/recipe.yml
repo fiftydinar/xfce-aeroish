@@ -76,7 +76,8 @@ modules:
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh compiz"
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh emerald"
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh networkmanager-dispatcher-chrony"
-      - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh gtk-nocsd-git"
+      - |
+        cd /tmp/arch-tools && PRE_BUILD_CMDS="sed -i 's|LIBDIR=\"/usr/lib\"|LIBDIR=\"/usr/lib\" NOOPT=1|' ./PKGBUILD" /tmp/arch-tools/make-aur-package.sh gtk-nocsd-git
       # Cleanup
       - "rm -r /tmp/arch-tools/"
       # Set bootc update service to not reboot on finished update
