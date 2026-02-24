@@ -35,6 +35,7 @@ modules:
         - chrony
         # Network
         - networkmanager
+        - wget
         # Bluetooth
         - bluez
         - bluez-obex
