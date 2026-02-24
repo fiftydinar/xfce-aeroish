@@ -136,6 +136,8 @@ modules:
   - type: signing
   - type: script
     snippets:
+      # For some reason, some /usr/etc/ files are lingering
+      - "cp -r -a -n /usr/etc/. /etc/ && rm -rf /usr/etc"
       # Show all installed packages sorted by size
       - |
         pacman -Qi | awk -F': ' '/Name/ {n=$2} /Installed Size/ {s=$2} n && s {print n, s; n=s=""}' | column -t | grep MiB | sort -nk 2
