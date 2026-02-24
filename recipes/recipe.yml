@@ -102,6 +102,8 @@ modules:
       - "echo -e 'VISUAL=nano\nEDITOR=nano' >> /etc/environment"
       # Set gtk nocsd by default
       - "echo 'LD_PRELOAD=/usr/lib/libgtk-nocsd.so' >> /etc/environment"
+      # Set QT apps to use qt{5-6}ct as platform theme (setting it to qt5ct works on both qt5 and qt6)
+      - "echo 'QT_QPA_PLATFORMTHEME=qt5ct' >> /etc/environment"
       # Disable coredumps (untransparent, can leak some undesired info and can bloat the storage size)
       - "mkdir -p /usr/lib/systemd/system.conf.d /usr/lib/user/user.conf.d /etc/security/limits.d /usr/lib/sysctl.d"
       - "echo -e '[Manager]\nDumpCore=no' > /usr/lib/systemd/system.conf.d/60-disable-coredump.conf"
