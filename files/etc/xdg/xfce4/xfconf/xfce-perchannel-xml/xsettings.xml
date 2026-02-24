@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<channel name="xsettings" version="1.0">
-  <property name="Gtk" type="empty">
-    <property name="Aero Cursor" type="string" value="aero-cursors"/>
-  </property>
-</channel>
