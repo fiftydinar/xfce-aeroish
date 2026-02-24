@@ -105,7 +105,7 @@ modules:
       - "echo -e 'VISUAL=nano\nEDITOR=nano' >> /etc/environment"
       # Set gtk-nocsd by default
       - "echo 'LD_PRELOAD=/usr/lib/libgtk-nocsd.so' >> /etc/environment"
-      # Needed for gtk-nocsd (we don't preload tons of various libs like SteamOS, so we are safe)
+      # Needed for gtk-nocsd to work in sharun AppImages (we don't preload tons of various libs like SteamOS, so we are safe)
       - "echo 'SHARUN_ALLOW_LD_PRELOAD=1' >> /etc/environment"
       # Set QT apps to use qt{5-6}ct as platform theme (setting it to qt5ct works on both qt5 and qt6)
       - "echo 'QT_QPA_PLATFORMTHEME=qt5ct' >> /etc/environment"
