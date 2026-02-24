@@ -115,8 +115,6 @@ modules:
       # Set compiz as the default window manager and compositor
       - |
         sed -i 's/value="xfwm4"/value="compiz"/g' /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-session.xml
-      # Symlink Aero cursor theme to be the default
-      - "ln -s /usr/share/icons/aero-cursors /usr/share/icons/default"
       # Workaround for complaint about /usr/etc to /etc merge, even when all files are in /etc
       - |
         echo -e '# Type  Path        Mode  UID  GID  Age  Argument\nC+      /etc/       -     -    -    -    /usr/share/system-etc/' > /usr/lib/tmpfiles.d/20-system-etc-to-etc.conf
