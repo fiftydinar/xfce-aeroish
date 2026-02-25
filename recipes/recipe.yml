@@ -144,7 +144,7 @@ modules:
     snippets:
       # Symlink emerald theme to be used by default
       - |
-        for file in /usr/share/emerald/themes/aero/*; do ln -s "$file" /usr/share/emerald/theme/$(basename "$file"); done
+        mkdir -p /usr/share/emerald/theme && for file in /usr/share/emerald/themes/aero/*; do ln -s "$file" /usr/share/emerald/theme/$(basename "$file"); done
       # Show all installed packages sorted by size
       - |
         pacman -Qi | awk -F': ' '/Name/ {n=$2} /Installed Size/ {s=$2} n && s {print n, s; n=s=""}' | column -t | grep MiB | sort -nk 2
