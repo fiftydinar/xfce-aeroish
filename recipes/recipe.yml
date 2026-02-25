@@ -44,6 +44,11 @@ modules:
         - phodav
         # Containers
         - distrobox
+        # Font
+        - noto-fonts
+        - noto-fonts-cjk
+        - noto-fonts-emoji
+        - noto-fonts-extra
         # Desktop environment
         - xorg
         - xfce4
