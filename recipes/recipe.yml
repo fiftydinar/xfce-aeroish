@@ -123,6 +123,9 @@ modules:
       # Set compiz as the default window manager and compositor
       - |
         sed -i 's/value="xfwm4"/value="compiz"/g' /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-session.xml
+      # Hide xfwm4 stuff in settings, since we don't use it
+      - "echo 'Hidden=true' >> /usr/share/applications/xfce-wm-settings.desktop"
+      - "echo 'Hidden=true' >> /usr/share/applications/xfce-wmtweaks-settings.desktop"
       # Replace XFCE xsettings.xml stuff like theme, icons, cursors, fonts (to not overwrite the existing default config)
       - |
         sed -i 's|<property name="ThemeName" type="string" value=".*"/>|<property name="ThemeName" type="string" value="ReVista"/>|' /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
