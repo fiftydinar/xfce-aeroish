@@ -7,7 +7,7 @@
   </property>
   <property name="Gtk" type="empty">
     <property name="CursorThemeName" type="string" value="aero-cursors"/>
-    <property name="FontName" type="string" value="Nimbus Sans 9"/>
-    <property name="MonospaceFontName" type="string" value="Monospace 9"/>
+    <property name="FontName" type="string" value="Noto Sans 9"/>
+    <property name="MonospaceFontName" type="string" value="Noto Sans Mono 9"/>
   </property>
 </channel>
