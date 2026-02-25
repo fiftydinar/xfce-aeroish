@@ -6,8 +6,8 @@ image-version: latest
 modules:
   - type: files
     files:
-      - source: usr
-        destination: /usr
+      - source: usr/share
+        destination: /usr/share
   - type: pacman
     install:
       packages:
@@ -134,6 +134,10 @@ modules:
         - chronyd.service # Time-sync
         - bluetooth.service # Bluez Bluetooth service
         - lightdm.service # Display manager
+  - type: files
+    files:
+      - source: usr/lib/tmpfiles.d
+        destination: /usr/lib/tmpfiles.d
   - type: signing
   - type: script
     snippets:
