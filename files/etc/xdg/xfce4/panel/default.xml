@@ -22,7 +22,8 @@
         <value type="int" value="14"/>
         <value type="int" value="15"/>
       </property>
-      <property name="autohide-behavior" type="uint" value="1"/>
+      <property name="autohide-behavior" type="uint" value="0"/>
+      <property name="enable-struts" type="bool" value="false"/>
     </property>
   </property>
   <property name="plugins" type="empty">
