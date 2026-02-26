@@ -132,7 +132,7 @@ modules:
       - |
         sed -i 's|<property name="IconThemeName" type="string" value=".*"/>|<property name="IconThemeName" type="string" value="Obsidian-Teal"/>|' /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
       - |
-        sed -i 's|<property name="CursorThemeName" type="string" value=".*"/>|<property name="CursorThemeName" type="string" value="aero-cursors"/>|' /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
+        sed -i 's|<property name="CursorThemeName" type="string" value=".*"/>|<property name="CursorThemeName" type="string" value="aero-drop"/>|' /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
       - |
         sed -i 's|<property name="FontName" type="string" value=".*"/>|<property name="FontName" type="string" value="Noto Sans 9"/>|' /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
       - |
