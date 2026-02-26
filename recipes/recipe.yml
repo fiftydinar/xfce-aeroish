@@ -1,4 +1,4 @@
-name: xfce-aero-vista
+name: xfce-aeroish
 description: XFCE with Vista-like theme, with some modifications.
 base-image: ghcr.io/fiftydinar/arch-bootc
 image-version: latest
