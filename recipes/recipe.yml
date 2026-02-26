@@ -78,7 +78,7 @@ modules:
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh libwnck"
       ## Enable blur by default and patch it to use emerald decorator directly in compiz
       - |
-        cd /tmp/arch-tools && PRE_BUILD_CMDS="sed -i 's|compiztoolbox,|compiztoolbox,blur,|g' ./PKGBUILD" /tmp/arch-tools/make-aur-package.sh compiz
+        cd /tmp/arch-tools && PRE_BUILD_CMDS="sed -i 's|compiztoolbox,|compiztoolbox,blur,snap,|g' ./PKGBUILD" /tmp/arch-tools/make-aur-package.sh compiz
       - |
         sed -i 's|USE_EMERALD="no"|USE_EMERALD="yes"|g' /usr/bin/compiz-decorator
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh emerald"
