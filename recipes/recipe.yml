@@ -1,6 +1,6 @@
 name: xfce-aeroish
 description: XFCE with Aero-like theme.
-base-image: ghcr.io/fiftydinar/arch-bootc
+base-image: ghcr.io/bootcrew/arch-bootc
 image-version: latest
 
 modules:
