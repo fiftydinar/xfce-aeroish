@@ -166,3 +166,5 @@ modules:
       # Show all installed packages sorted by size
       - |
         pacman -Qi | awk -F': ' '/Name/ {n=$2} /Installed Size/ {s=$2} n && s {print n, s; n=s=""}' | column -t | grep MiB | sort -nk 2
+      # Clear pacman cache, saves about 800MB
+      - "rm -r /usr/lib/sysimage/cache/pacman"
