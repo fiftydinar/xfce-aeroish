@@ -1,3 +1,4 @@
+mkdir -p "${XDG_CONFIG_HOME:-$HOME/.config}/gtk-4.0"
 if [ ! -e "${XDG_CONFIG_HOME:-$HOME/.config}/gtk-4.0/gtk.css" ]; then
   ln -s /usr/share/themes/ReVista/gtk-4.0/gtk.css "${XDG_CONFIG_HOME:-$HOME/.config}/gtk-4.0/gtk.css"
 fi
