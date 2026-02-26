@@ -75,7 +75,7 @@ modules:
       - "chmod +x /tmp/arch-tools/make-aur-package.sh"
       # Install patched xfdesktop (for default background), compiz, emerald, networkmanager-dispatcher-chrony, gtk-nocsd-git, spice-guest-tools-windows
       - |
-        pacman -Rns --noconfirm xfdesktop && cd /tmp/arch-tools && PRE_BUILD_CMDS=$'sed -i \'/^build()[[:space:]]*{/a\\\n  export CFLAGS="$CFLAGS -DDEFAULT_BACKDROP=\\\"/usr/share/backgrounds/frosted-glass.webp\\\""\n\' PKGBUILD' /tmp/arch-tools/make-aur-package.sh --archlinux-pkg xfdesktop
+        pacman -Rns --noconfirm xfdesktop && cd /tmp/arch-tools && PRE_BUILD_CMDS='sed -i s|--prefix=/usr \|--prefix=/usr --default-backdrop-filename=/usr/share/backgrounds/frosted-glass.webp \|g ./PKGBUILD' /tmp/arch-tools/make-aur-package.sh --archlinux-pkg xfdesktop
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh gtk2"
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh libwnck"
       ## Enable blur by default and patch it to use emerald decorator directly in compiz
