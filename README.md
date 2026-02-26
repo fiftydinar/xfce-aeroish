@@ -1,4 +1,4 @@
-# xfce-aero-vista
+# xfce-aeroish
 
 WIP
 
@@ -12,13 +12,13 @@ WIP
 ## How to install
 
 1. Download Fedora Vauxite ISO from [this URL](https://github.com/winblues/vauxite) and install it regularly
-2. When you boot to Vauxite, run this command below to switch to `xfce-aero-vista` (requires internet connection):
-  - `sudo bootc switch ghcr.io/fiftydinar/xfce-aero-vista:latest`
+2. When you boot to Vauxite, run this command below to switch to `xfce-aeroish` (requires internet connection):
+  - `sudo bootc switch ghcr.io/fiftydinar/xfce-aeroish:latest`
 3. Reboot the system
 4. Boot the Arch entry
 5. 1st boot will fail with blinking line in top-left, but 2nd one will be successful (rebase workaround which only applies on 2nd boot)
-6. Install the container signatures required for signed image of `xfce-aero-vista` (requires internet connection):
-  - `sudo bootc switch --enforce-container-sigpolicy ghcr.io/fiftydinar/xfce-aero-vista:latest`
+6. Install the container signatures required for signed image of `xfce-aeroish` (requires internet connection):
+  - `sudo bootc switch --enforce-container-sigpolicy ghcr.io/fiftydinar/xfce-aeroish:latest`
 7. Reboot the system
 8. Enjoy!
 
