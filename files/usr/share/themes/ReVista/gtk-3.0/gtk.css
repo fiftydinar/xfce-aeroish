@@ -1,7 +1,5 @@
-/*# name: Windows 10 Light
-  # author: Christian Medel (Elbullazul)
-  # date: April 7th, 2016
-  # description: Windows 10 Default White color*/
+/* Merged: Revista GTK3 theme + XFCE4 custom panel styling
+*/
 
 /* default color scheme */
 @define-color bg_color #e8ecf6;
@@ -101,3 +99,399 @@
 @import url("apps/nemo.css");
 @import url("apps/synaptic.css");
 @import url("apps/lightdm-gtk-greeter.css");
+
+/* =======================================================================
+   XFCE4 panel / plugin customizations (originally xfce4_theme_custom.theme)
+   Appended to the Windows 10 Light theme so XFCE4 panel styles load together.
+   ======================================================================= */
+
+/* This part is used for xfce4 (mainly panel) styling. */
+
+/* Window Buttons */
+.tasklist button {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      rgba(255,255,255,0.5),
+                                      rgba(135,165,202,0));
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.375) inset;
+    color: #ffffff;
+    text-shadow: none;
+    margin: 0 1px;
+}
+
+.tasklist button:checked {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      rgba(255,255,255,0.875),
+                                      rgba(255,255,255,0.25));
+    border: 1px solid rgba(0,0,0,0.5);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.5) inset;
+}
+
+/* Docklike plugin */
+#docklike-plugin button {
+    padding: 0;
+    min-width: 56px;
+    border: 1px solid rgba(0,0,0,0);
+    transition: 500ms;
+    margin: 0px;
+}
+
+#docklike-plugin button:first-child {
+    margin-left: 0px;
+}
+
+#docklike-plugin button:last-child {
+    margin-right: 0px;
+}
+
+#docklike-plugin .open_group {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      rgba(255,255,255,0.5),
+                                      rgba(135,165,202,0));
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.375) inset;
+}
+
+#docklike-plugin .hover_group {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      rgba(255,255,255,0.5),
+                                      rgba(135,165,202,0));
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.375) inset;
+}
+
+#docklike-plugin .active_group {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      rgba(255,255,255,0.875),
+                                      rgba(255,255,255,0.25));
+    border: 1px solid rgba(0,0,0,0.5);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.5) inset;
+}
+
+/* Applications menu and whisker menu with an orb, based on PNG. */
+
+#applicationmenu-button {
+    background-image: url("./orb.png");
+    background-size: 38px;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0 19px;
+    margin-right: 5px;
+    border: none;
+    border-image: none;
+    box-shadow: none;
+    transition: 500ms;
+}
+
+#applicationmenu-button image {
+    opacity: 0;
+}
+
+#applicationmenu-button:hover {
+    background-image: url("./orb-hover.png");
+    border: none;
+    border-image: none;
+    box-shadow: none;
+}
+
+#applicationmenu-button:checked {
+    background-image: url("./orb-checked.png");
+    border: none;
+    border-image: none;
+    box-shadow: none;
+}
+
+#whiskermenu-button {
+    background-image: url("./orb.png");
+    background-size: 38px;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0 19px;
+    margin-right: 5px;
+    border: none;
+    border-image: none;
+    box-shadow: none;
+    transition: 500ms;
+}
+
+#whiskermenu-button image {
+    opacity: 0;
+}
+
+#whiskermenu-button:hover {
+    background-image: url("./orb-hover.png");
+    border: none;
+    border-image: none;
+    box-shadow: none;
+}
+
+#whiskermenu-button:checked {
+    background-image: url("./orb-checked.png");
+    border: none;
+    border-image: none;
+    box-shadow: none;
+}
+
+/* Applet tray customization here. Mostly for button hover/toggled/pressed. */
+
+#clock-button {
+    color: #ffffff;
+    margin-right: -16px;
+    padding: 0 2px;
+    border: 1px solid rgba(0,0,0,0);
+    padding: 0 4px;
+    transition: 500ms;
+}
+
+#clock-button:hover {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      rgba(255,255,255,0.5),
+                                      rgba(135,165,202,0));
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.375) inset;
+    padding: 0 4px;
+}
+
+#clock-button:checked {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      rgba(255,255,255,0.625),
+                                      rgba(255,255,255,0.165));
+    border: 1px solid rgba(0,0,0,0.5);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.5) inset;
+}
+
+#xfce4-power-manager-plugin {
+    color: #ffffff;
+    border: 1px solid rgba(0,0,0,0);
+    transition: 500ms;
+}
+
+#xfce4-power-manager-plugin:hover {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      rgba(255,255,255,0.5),
+                                      rgba(135,165,202,0));
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.375) inset;
+}
+
+#xfce4-power-manager-plugin:checked {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      rgba(255,255,255,0.625),
+                                      rgba(255,255,255,0.165));
+    border: 1px solid rgba(0,0,0,0.5);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.5) inset;
+}
+
+/* Show desktop styled to Windows 7 like (no button, a simple box with some 
+ * styling). */
+
+#showdesktop-button {
+    background-image: linear-gradient(to bottom, 
+				      rgba(255,255,255,0.5), 
+				      rgba(255,255,255,0) 33.75%),
+		      linear-gradient(to bottom,
+                                      rgba(0,0,0,0.375),
+                                      rgba(0,0,0,0.0625) 100%);
+    border: 1px solid rgba(0,0,0,0.375);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.325) inset;
+    margin: 0;
+    border-radius: 0;
+    margin-left: 20px;
+    transition: 500ms;
+}
+
+#showdesktop-button image {
+    opacity: 0;
+}
+
+#showdesktop-button:hover {
+    background-image: linear-gradient(to bottom, 
+				      rgba(255,255,255,0.5), 
+				      rgba(255,255,255,0) 25%),
+		      linear-gradient(to bottom,
+                                      rgba(255,255,255,0.5),
+                                      rgba(255,255,255,0.25) 100%);
+}
+
+#xfce4-clipman-plugin {
+    border: 1px solid rgba(0,0,0,0);
+    transition: 500ms;
+}
+
+#xfce4-clipman-plugin image {
+    color: #ffffff;
+}
+
+#xfce4-clipman-plugin:hover {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      rgba(255,255,255,0.5),
+                                      rgba(135,165,202,0));
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.375) inset;
+}
+
+#xfce4-clipman-plugin:checked {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      rgba(255,255,255,0.625),
+                                      rgba(255,255,255,0.165));
+    border: 1px solid rgba(0,0,0,0.5);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.5) inset;
+}
+
+#pulseaudio-button {
+    border: 1px solid rgba(0,0,0,0);
+    transition: 500ms;
+}
+
+#pulseaudio-button:hover {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      rgba(255,255,255,0.5),
+                                      rgba(135,165,202,0));
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.375) inset;
+}
+
+#pulseaudio-button:checked {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      rgba(255,255,255,0.625),
+                                      rgba(255,255,255,0.165));
+    border: 1px solid rgba(0,0,0,0.5);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.5) inset;
+}
+
+#sn-button {
+    border: 1px solid rgba(0,0,0,0);
+    transition: 500ms;
+}
+
+#sn-button:hover {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      rgba(255,255,255,0.5),
+                                      rgba(135,165,202,0));
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.375) inset;
+}
+
+#sn-button:checked {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      rgba(255,255,255,0.625),
+                                      rgba(255,255,255,0.165));
+    border: 1px solid rgba(0,0,0,0.5);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.5) inset;
+}
+
+/* Give a slight styling to the system tray expander button toggle. */
+
+#systray-6 button.toggle {
+    border: 1px solid rgba(0,0,0,0);
+	transition: 500ms;
+}
+
+#systray-6 button.toggle:hover, #systray-6 button.toggle:checked {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      rgba(255,255,255,0.5),
+                                      rgba(255,255,255,0));
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.375) inset;
+}
+
+/* Gives an illusion that the width is small, but these applet don't actually 
+ * resize... */ 
+
+#xfce4-power-manager-plugin, #xfce4-clipman-plugin {
+    padding: 0;
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+#xfce4-power-manager-plugin, #xfce4-clipman-plugin {
+    margin: 0 8px;
+}
+
+/* This one resizes for real. 
+ * PulseAudio plugin must in the center to give an illusion that the overall 
+ * width of the tray, otherwise it does not look good. I hope the devs added
+ * width size (pixels) so no need to fiddling around with the CSS. */
+
+#pulseaudio-button box {
+    margin: 0 -10px;
+}
+
+/* Makes the arrow color on system tray white. Symbolic icons may also uses
+ * white for this. */
+
+#systray-6 button {
+    color: #ffffff;
+}
+
+/* Try to replicate some parts of the Windows 7's start menu to the whisker
+ * menu window.
+
+ * Whisker menu background opacity is needed to not break the button background.
+
+ * If it works, don't touch it. */
+
+#whiskermenu-window {
+    /* Change background-image tag to background-color (no gradient) if it
+     * breaks even background opacity is set less than 100. */       
+    background-image: linear-gradient(to bottom, #404040, #000000);
+    color: #ffffff;
+}
+
+#whiskermenu-window button {
+    color: #ffffff;
+    margin: 2px;
+    border: 1px solid transparent;
+    transition: 250ms;
+}
+
+#whiskermenu-window button:hover {
+    background-image: linear-gradient(to bottom,
+                                      rgba(255,255,255,0.5),
+                                      rgba(135,165,202,0));
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.375) inset;
+}
+
+#whiskermenu-window button:checked {
+    background-image: linear-gradient(to bottom,
+                                      rgba(255,255,255,0.625),
+                                      rgba(255,255,255,0.165));
+    border: 1px solid rgba(0,0,0,0.5);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.5) inset;
+}
+
+/* Reduce the margin on xfdesktop4. */
+
+XfdesktopIconView.view {
+    -XfdesktopIconView-cell-spacing: 0;
+    -XfdesktopIconView-cell-padding: 5;
+}
+
+/* End of xfce4 styling. */
