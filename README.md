@@ -5,11 +5,14 @@
 > [!IMPORTANT]  
 > This custom image is still WIP and in an alpha phase.
 
+> [!IMPORTANT]  
+> For any theming issues, report here, don't report to the upstream developers.
+
 Aero-like XFCE custom image based on Arch Linux base bootc image.
 
 ## Theming Credits and Base
 
-For the Aeroish GTK2, GTK3, GTK4 and LightDM theme, I credit:  
+For the Aeroish GTK2, GTK3, GTK4 and LightDM theme, I credit:
 - ['ReVista' - x35gaming](https://github.com/x35gaming/revista), [slightly modified version by contrarybaton60](https://github.com/contrarybaton60/vista-stuff-xfce4/tree/main/gtk-theme)
 
 For the Qt5 and Qt6 theme, I credit:
