@@ -166,7 +166,8 @@ modules:
   - type: script
     snippets:
       # Generate initramfs
-      - "dracut --force $(find /usr/lib/modules -maxdepth 1 -type d | grep -v "\.img$" | tail -n 1)/initramfs.img"
+      - |
+        dracut --force "$(find /usr/lib/modules -maxdepth 1 -type d | grep -v "\.img$" | tail -n 1)"/initramfs.img
       # Show all installed packages sorted by size
       - |
         pacman -Qi | awk -F': ' '/Name/ {n=$2} /Installed Size/ {s=$2} n && s {print n, s; n=s=""}' | column -t | grep MiB | sort -nk 2
