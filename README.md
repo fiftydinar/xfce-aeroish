@@ -9,16 +9,21 @@ Aero-like XFCE custom image based on Arch Linux base bootc image.
 
 ## Theming Credits and Base
 
-For the Aeroish GTK2, GTK3, GTK4 and LightDM theme, I credit:
+For the Aeroish GTK2, GTK3, GTK4 and LightDM theme, I credit:  
 - ['ReVista' - x35gaming](https://github.com/x35gaming/revista), [slightly modified version by contrarybaton60](https://github.com/contrarybaton60/vista-stuff-xfce4/tree/main/gtk-theme)
+
 For the Qt5 and Qt6 theme, I credit:
 - ['AeroThemePlasma' - wackyideas](https://gitgud.io/aeroshell/atp/aerothemeplasma)
+
 For the Emerald window decoration theme, I credit:
 - ['Aero Glass' - winvistlinux, ILoveNat](https://www.gnome-look.org/p/1835389)
+
 For the X11 cursors theme, I credit:
 - ['Windows 7 Aero' - ILexian](https://github.com/lLexian/Windows-7-Aero-Cursors_Linux) + ['Aero Mouse Cursors with Drop Shadow' - Infinality](https://www.xfce-look.org/p/999972/)
+
 For the XFCE-desktop GTK3 theme, I credit:
 - ['aeroish-xfce4' - w4lll](https://github.com/w4lll/aeroish-xfce4/tree/main/config)
+
 For the default icon set, I credit:
 - ['Obsidian' - madmaxms](https://github.com/madmaxms/iconpack-obsidian)
 
