@@ -25,8 +25,7 @@ WIP
 
 ## Caveats
 
-This image is based on the experimental work of [arch-bootc](https://github.com/bootcrew/arch-bootc) base image, which I had to [fork](https://github.com/fiftydinar/arch-bootc) to fix some issues.  
-So based on the above information, it is expected that some things are not good or ready.
+This image is based on the experimental work of [arch-bootc](https://github.com/bootcrew/arch-bootc) base image, so some issues might arise.  
 
 1. GRUB bootloader cannot be updated
   - It will stay on the same version basically forever, because [bootupd](https://github.com/coreos/bootupd) only works on Fedora and CoreOS based distributions.
