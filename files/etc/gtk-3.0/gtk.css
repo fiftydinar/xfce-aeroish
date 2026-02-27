@@ -299,10 +299,6 @@
     transition: 500ms;
 }
 
-#pulseaudio-button image {
-    -gtk-icon-transform: scale(0.90);
-}
-
 #pulseaudio-button:hover {
     background-color: transparent;
     background-image: linear-gradient(to bottom,
