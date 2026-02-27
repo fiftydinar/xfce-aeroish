@@ -2,6 +2,9 @@
 
 ![](assets/showcase.png)
 
+> [!IMPORTANT]  
+> This custom image is still WIP and in an alpha phase.
+
 Aero-like XFCE custom image based on Arch Linux base bootc image.
 
 ## Theming Credits and Base
