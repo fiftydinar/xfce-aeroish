@@ -193,6 +193,39 @@
     box-shadow: 0 0 0 1px rgba(255,255,255,0.5) inset;
 }
 
+/* Notification plugin glass hover/press effect.
+ * Try multiple possible CSS names since XFCE may name it differently. */
+
+#notification-plugin,
+#notification-plugin-13,
+#xfce4-notification-plugin {
+    border: 1px solid rgba(0,0,0,0);
+    transition: 500ms;
+}
+
+#notification-plugin:hover,
+#notification-plugin-13:hover,
+#xfce4-notification-plugin:hover {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      rgba(255,255,255,0.5),
+                                      rgba(135,165,202,0));
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.375) inset;
+}
+
+#notification-plugin:checked,
+#notification-plugin-13:checked,
+#xfce4-notification-plugin:checked {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      rgba(255,255,255,0.625),
+                                      rgba(255,255,255,0.165));
+    border: 1px solid rgba(0,0,0,0.5);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.5) inset;
+}
+
 /* Show desktop styled to Windows 7 like (no button, a simple box with some 
  * styling). */
 
@@ -300,21 +333,38 @@
     box-shadow: 0 0 0 1px rgba(255,255,255,0.5) inset;
 }
 
-/* Give a slight styling to the system tray expander button toggle. */
+/* Give a slight styling to the system tray expander button toggle and
+ * systray icon buttons. Use both systray-4 (from default.xml plugin-4)
+ * and systray-6 (in case of different config). */
 
-#systray-6 button.toggle {
+#systray-4 button,
+#systray-6 button {
+    color: #ffffff;
     border: 1px solid rgba(0,0,0,0);
-	transition: 500ms;
+    transition: 500ms;
 }
 
-#systray-6 button.toggle:hover, #systray-6 button.toggle:checked {
+#systray-4 button:hover,
+#systray-6 button:hover {
     background-color: transparent;
     background-image: linear-gradient(to bottom,
                                       rgba(255,255,255,0.5),
-                                      rgba(255,255,255,0));
+                                      rgba(135,165,202,0));
     border: 1px solid rgba(0,0,0,0.5);
     border-radius: 3px;
     box-shadow: 0 0 0 1px rgba(255,255,255,0.375) inset;
+}
+
+#systray-4 button:checked,
+#systray-4 button:active,
+#systray-6 button:checked,
+#systray-6 button:active {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      rgba(255,255,255,0.625),
+                                      rgba(255,255,255,0.165));
+    border: 1px solid rgba(0,0,0,0.5);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.5) inset;
 }
 
 /* Gives an illusion that the width is small, but these applet don't actually 
@@ -337,13 +387,6 @@
 
 #pulseaudio-button box {
     margin: 0 -10px;
-}
-
-/* Makes the arrow color on system tray white. Symbolic icons may also uses
- * white for this. */
-
-#systray-6 button {
-    color: #ffffff;
 }
 
 /* Try to replicate some parts of the Windows 7's start menu to the whisker
