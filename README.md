@@ -33,6 +33,7 @@ Now that we know what's the theming base and other defaults, I'll highlight what
 - Additional `compiz` defaults that enables blur, snap and grid plugins + blurs taskbar and start menu. Also modified grid plugin to use colors matching the default background.
 - Modified XFCE-desktop GTK3 theme to make applets size square-consistent, to make all applets use the Aero button hover and press theme and to make Start menu coloring closer to taskbar.
 - Preconfigured variables, config and scripts for default theming, which includes: LightDM login screen, GTK2, GTK3, GTK4 (including Adwaita), Qt5, Qt6 and XFCE-desktop.
+- Force GTK apps to use server-side decorations through [gtk-nocsd](https://codeberg.org/MorsMortium/gtk-nocsd)
 - Installed and preconfigured Whisker-menu, docklike-taskbar, xfce4-power-manager, network-manager-applet, xfce4-pulseaudio-plugin, system tray, notifier, clock.
 - Installs `qt5ct` and `qt6ct` in addition to Kvantum, so the Qt apps behavior can be modified further.
 - Uses the cool teal glass background as the default.
