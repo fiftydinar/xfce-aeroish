@@ -19,8 +19,9 @@ WIP
 5. 1st boot will fail with blinking line in top-left, but 2nd one will be successful (rebase workaround which only applies on 2nd boot)
 6. Install the container signatures required for signed image of `xfce-aeroish` (requires internet connection):
   - `sudo bootc switch --enforce-container-sigpolicy ghcr.io/fiftydinar/xfce-aeroish:latest`
-7. Reboot the system
-8. Enjoy!
+7. Remove `$HOME/.config/xfce4/xfconf/xfce-perchannel-xml/` folder once, then twice, as it will regenerate. This is to reset user XFCE settings if changed previously by Vauxite
+8. Reboot the system
+9. Enjoy!
 
 ## Caveats
 
