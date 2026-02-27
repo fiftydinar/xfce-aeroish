@@ -313,6 +313,12 @@
     transition: 500ms;
 }
 
+#sn-button image {
+    min-width: 16px;
+    min-height: 16px;
+    -gtk-icon-transform: scale(0.75);
+}
+
 #sn-button:hover {
     background-color: transparent;
     background-image: linear-gradient(to bottom,
