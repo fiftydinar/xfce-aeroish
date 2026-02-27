@@ -19,6 +19,8 @@ For the X11 cursors theme, I credit:
 - ['Windows 7 Aero' - ILexian](https://github.com/lLexian/Windows-7-Aero-Cursors_Linux) + ['Aero Mouse Cursors with Drop Shadow' - Infinality](https://www.xfce-look.org/p/999972/)
 For the XFCE-desktop GTK3 theme, I credit:
 - ['aeroish-xfce4' - w4lll](https://github.com/w4lll/aeroish-xfce4/tree/main/config)
+For the default icon set, I credit:
+- ['Obsidian' - madmaxms](https://github.com/madmaxms/iconpack-obsidian)
 
 ## Highlights
 
