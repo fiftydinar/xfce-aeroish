@@ -354,9 +354,15 @@
  * If it works, don't touch it. */
 
 #whiskermenu-window {
-    /* Change background-image tag to background-color (no gradient) if it
-     * breaks even background opacity is set less than 100. */       
-    background-image: linear-gradient(to bottom, #404040, #000000);
+    /* CSS-only glassy taskbar texture, matching the panel appearance. */
+    background-color: rgba(0,0,0,0.65);
+    background-image: linear-gradient(to bottom,
+                                      rgba(255,255,255,0.4),
+                                      rgba(255,255,255,0.05) 3%,
+                                      rgba(0,0,0,0.1) 50%,
+                                      rgba(0,0,0,0.3));
+    border: 1px solid rgba(0,0,0,0.5);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.3) inset;
     color: #ffffff;
 }
 

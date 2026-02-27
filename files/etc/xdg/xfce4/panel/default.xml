@@ -32,7 +32,7 @@
       <property name="view-mode" type="int" value="2"/>
       <property name="launcher-show-description" type="bool" value="false"/>
       <property name="category-icon-size" type="int" value="-1"/>
-      <property name="menu-opacity" type="int" value="50"/>
+      <property name="menu-opacity" type="int" value="70"/>
       <property name="menu-width" type="int" value="400"/>
       <property name="menu-height" type="int" value="620"/>
       <property name="profile-shape" type="int" value="1"/>
