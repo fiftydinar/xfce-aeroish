@@ -89,6 +89,7 @@
 }
 
 #applicationmenu-button:hover {
+    background-color: transparent;
     background-image: url("./orb-hover.png");
     border: none;
     border-image: none;
@@ -96,6 +97,7 @@
 }
 
 #applicationmenu-button:checked {
+    background-color: transparent;
     background-image: url("./orb-checked.png");
     border: none;
     border-image: none;
@@ -120,6 +122,7 @@
 }
 
 #whiskermenu-button:hover {
+    background-color: transparent;
     background-image: url("./orb-hover.png");
     border: none;
     border-image: none;
@@ -127,6 +130,7 @@
 }
 
 #whiskermenu-button:checked {
+    background-color: transparent;
     background-image: url("./orb-checked.png");
     border: none;
     border-image: none;
