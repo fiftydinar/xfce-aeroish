@@ -15,12 +15,13 @@
         <value type="int" value="1"/>
         <value type="int" value="2"/>
         <value type="int" value="3"/>
-        <value type="int" value="10"/>
-        <value type="int" value="11"/>
         <value type="int" value="4"/>
-        <value type="int" value="13"/>
-        <value type="int" value="14"/>
-        <value type="int" value="15"/>
+        <value type="int" value="5"/>
+        <value type="int" value="6"/>
+        <value type="int" value="7"/>
+        <value type="int" value="8"/>
+        <value type="int" value="9"/>
+        <value type="int" value="10"/>
       </property>
       <property name="autohide-behavior" type="uint" value="0"/>
       <property name="enable-struts" type="bool" value="false"/>
@@ -44,27 +45,16 @@
       <property name="expand" type="bool" value="true"/>
       <property name="style" type="uint" value="0"/>
     </property>
-    <property name="plugin-10" type="string" value="separator">
+    <property name="plugin-4" type="string" value="separator">
       <property name="expand" type="bool" value="true"/>
       <property name="style" type="uint" value="0"/>
     </property>
-    <property name="plugin-11" type="string" value="power-manager-plugin"/>
-    <property name="plugin-13" type="string" value="notification-plugin"/>
-    <property name="plugin-14" type="string" value="clock">
-      <property name="digital-date-font" type="string" value="Noto Sans Semi-Bold 9"/>
-      <property name="digital-time-font" type="string" value="Noto Sans Semi-Bold 9"/>
-      <property name="digital-date-format" type="string" value="%d.%m.%Y"/>
-      <property name="digital-layout" type="uint" value="1"/>
-    </property>
-    <property name="plugin-15" type="string" value="showdesktop">
-      <property name="show-on-hover" type="bool" value="true"/>
-    </property>
-    <property name="plugin-4" type="string" value="systray">
+    <property name="plugin-5" type="string" value="power-manager-plugin"/>
+    <property name="plugin-6" type="string" value="systray">
       <property name="known-legacy-items" type="array">
-        <value type="string" value="networkmanager applet"/>
-        <value type="string" value="pulseaudio system tray"/>
       </property>
       <property name="known-items" type="array">
+        <value type="string" value="networkmanager applet"/>
       </property>
       <property name="symbolic-icons" type="bool" value="true"/>
       <property name="hide-new-items" type="bool" value="false"/>
@@ -73,6 +63,19 @@
       </property>
       <property name="hidden-legacy-items" type="array">
       </property>
+    </property>
+    <property name="plugin-7" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+    </property>
+    <property name="plugin-8" type="string" value="notification-plugin"/>
+    <property name="plugin-9" type="string" value="clock">
+      <property name="digital-date-font" type="string" value="Noto Sans Semi-Bold 9"/>
+      <property name="digital-time-font" type="string" value="Noto Sans Semi-Bold 9"/>
+      <property name="digital-date-format" type="string" value="%d.%m.%Y"/>
+      <property name="digital-layout" type="uint" value="1"/>
+    </property>
+    <property name="plugin-10" type="string" value="showdesktop">
+      <property name="show-on-hover" type="bool" value="true"/>
     </property>
   </property>
 </channel>

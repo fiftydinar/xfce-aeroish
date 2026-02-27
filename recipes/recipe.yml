@@ -52,8 +52,9 @@ modules:
         # Desktop environment
         - xorg
         - xfce4
-        - pasystray
+        - xfce4-pulseaudio-plugin
         - cbatticon
+        - xfce4-screenshooter
         - network-manager-applet
         - obsidian-icon-theme
         - kvantum-qt5
@@ -128,6 +129,8 @@ modules:
       # Hide xfwm4 stuff in settings, since we don't use it
       - "echo 'Hidden=true' >> /usr/share/applications/xfce-wm-settings.desktop"
       - "echo 'Hidden=true' >> /usr/share/applications/xfce-wmtweaks-settings.desktop"
+      # Set nm-applet to use StatusNotifier (--indicator) instead of legacy XEmbed systray
+      - "sed -i 's|Exec=nm-applet|Exec=nm-applet --indicator|g' /etc/xdg/autostart/nm-applet.desktop"
       # Replace XFCE xsettings.xml stuff like theme, icons, cursors, fonts (to not overwrite the existing default config)
       - |
         sed -i 's|<property name="ThemeName" type="string" value=".*"/>|<property name="ThemeName" type="string" value="ReVista"/>|' /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
