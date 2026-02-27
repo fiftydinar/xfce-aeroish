@@ -170,8 +170,14 @@
 
 #xfce4-power-manager-plugin {
     color: #ffffff;
+    padding: 0;
+    margin: 0;
     border: 1px solid rgba(0,0,0,0);
     transition: 500ms;
+}
+
+#xfce4-power-manager-plugin image {
+    margin: 0 -4px;
 }
 
 #xfce4-power-manager-plugin:hover {
@@ -257,6 +263,8 @@
 }
 
 #xfce4-clipman-plugin {
+    padding: 0;
+    margin: 0;
     border: 1px solid rgba(0,0,0,0);
     transition: 500ms;
 }
@@ -285,8 +293,14 @@
 }
 
 #pulseaudio-button {
+    padding: 0;
+    margin: 0;
     border: 1px solid rgba(0,0,0,0);
     transition: 500ms;
+}
+
+#pulseaudio-button image {
+    -gtk-icon-transform: scale(0.90);
 }
 
 #pulseaudio-button:hover {
@@ -309,13 +323,13 @@
 }
 
 #sn-button {
+    padding: 0;
+    margin: 0;
     border: 1px solid rgba(0,0,0,0);
     transition: 500ms;
 }
 
 #sn-button image {
-    min-width: 16px;
-    min-height: 16px;
     -gtk-icon-transform: scale(0.75);
 }
 
@@ -363,28 +377,6 @@
                                       rgba(255,255,255,0.165));
     border: 1px solid rgba(0,0,0,0.5);
     box-shadow: 0 0 0 1px rgba(255,255,255,0.5) inset;
-}
-
-/* Gives an illusion that the width is small, but these applet don't actually
- * resize... */
-
-#xfce4-power-manager-plugin, #xfce4-clipman-plugin {
-    padding: 0;
-    margin-left: -12px;
-    margin-right: -12px;
-}
-
-#xfce4-power-manager-plugin, #xfce4-clipman-plugin {
-    margin: 0 8px;
-}
-
-/* This one resizes for real.
- * PulseAudio plugin must in the center to give an illusion that the overall
- * width of the tray, otherwise it does not look good. I hope the devs added
- * width size (pixels) so no need to fiddling around with the CSS. */
-
-#pulseaudio-button box {
-    margin: 0 -10px;
 }
 
 /* Try to replicate some parts of the Windows 7's start menu to the whisker
