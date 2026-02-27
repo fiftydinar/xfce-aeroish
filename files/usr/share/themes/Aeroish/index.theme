@@ -1,11 +1,11 @@
 [Desktop Entry]
 Type=X-GNOME-Metatheme
-Name=ReVista
-Comment=Windows Vista UI for Linux OSes
+Name=Aeroish
+Comment=Windows Aero-like UI for Linux OSes
 Encoding=UTF-8
 
 [X-GNOME-Metatheme]
-GtkTheme=ReVista
-MetacityTheme=ReVista
+GtkTheme=Aeroish
+MetacityTheme=Aeroish
 IconTheme=Windows 7
 ButtonLayout=menu:minimize,maximize,close
