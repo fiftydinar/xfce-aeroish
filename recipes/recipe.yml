@@ -94,8 +94,6 @@ modules:
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh spice-guest-tools-windows"
       # Cleanup
       - "rm -r /tmp/arch-tools/"
-      # Set bootc update service to not reboot on finished update
-      - "sed -i 's|bootc upgrade --apply --quiet|bootc upgrade --quiet|g' /usr/lib/systemd/system/bootc-fetch-apply-updates.service"
       # Fix groups after rebasing from non-Arch image # https://github.com/ExistingPerson08/arch-base
       - |
         echo -e '#!/bin/sh\ncat /usr/lib/sysusers.d/*.conf | grep -e "^g" | grep -v -e "^#" | awk "NF" | awk '\''{print $2}'\'' | grep -v -e "wheel" -e "root" -e "sudo" | xargs -I{} sed -i "/{}/d" "$1"' > /usr/libexec/arch-group-fix
@@ -170,6 +168,10 @@ modules:
         destination: /usr
       - source: etc
         destination: /etc
+  - type: systemd
+    system:
+      enabled:
+        - remove-fstab-root.service # fix error about systemd-remount-fs failing
   - type: signing
   - type: script
     snippets:
