@@ -96,10 +96,10 @@ modules:
       - "rm -r /tmp/arch-tools/"
       # Fix groups after rebasing from non-Arch image # https://github.com/ExistingPerson08/arch-base
       - |
-        echo -e '#!/bin/sh\ncat /usr/lib/sysusers.d/*.conf | grep -e "^g" | grep -v -e "^#" | awk "NF" | awk '\''{print $2}'\'' | grep -v -e "wheel" -e "root" -e "sudo" | xargs -I{} sed -i "/{}/d" "$1"' > /usr/libexec/arch-group-fix
-      - "chmod +x /usr/libexec/arch-group-fix"
+        echo -e '#!/bin/sh\ncat /usr/lib/sysusers.d/*.conf | grep -e "^g" | grep -v -e "^#" | awk "NF" | awk '\''{print $2}'\'' | grep -v -e "wheel" -e "root" -e "sudo" | xargs -I{} sed -i "/{}/d" "$1"' > /usr/libexec/arch-group-rebase-fix
+      - "chmod +x /usr/libexec/arch-group-rebase-fix"
       - |
-        echo -e '[Unit]\nDescription=Fix groups during rebase from Fedora and other images\nDefaultDependencies=no\nAfter=local-fs.target\nBefore=sysinit.target\nWants=local-fs.target\nConditionPathExists=!/var/lib/arch-group-fix.done\n\n[Service]\nType=oneshot\nExecStart=/usr/libexec/arch-group-fix /etc/group\nExecStart=/usr/libexec/arch-group-fix /etc/gshadow\nExecStart=/usr/bin/systemd-sysusers\nExecStartPost=/usr/bin/touch /var/lib/arch-group-fix.done\n\n[Install]\nWantedBy=sysinit.target' > /usr/lib/systemd/system/arch-group-rebase-fix.service
+        echo -e '[Unit]\nDescription=Fix groups during rebase from Fedora and other images\nDefaultDependencies=no\nAfter=local-fs.target\nBefore=sysinit.target\nWants=local-fs.target\nConditionPathExists=!/var/lib/arch-group-rebase-fix.stamp\n\n[Service]\nType=oneshot\nExecStart=/usr/libexec/arch-group-rebase-fix /etc/group\nExecStart=/usr/libexec/arch-group-rebase-fix /etc/gshadow\nExecStart=/usr/bin/systemd-sysusers\nExecStartPost=/usr/bin/touch /var/lib/arch-group-rebase-fix.stamp\n\n[Install]\nWantedBy=sysinit.target' > /usr/lib/systemd/system/arch-group-rebase-fix.service
       # Sudo for wheel group # https://github.com/ExistingPerson08/arch-base
       - |
         sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers || echo "%wheel ALL=(ALL:ALL) ALL" >> /etc/sudoers
