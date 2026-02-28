@@ -120,8 +120,9 @@ modules:
       - "echo 'SHARUN_ALLOW_LD_PRELOAD=1' >> /etc/environment"
       # Set QT apps to use qt{5-6}ct as platform theme (setting it to qt5ct works on both qt5 and qt6)
       - "echo 'QT_QPA_PLATFORMTHEME=qt5ct' >> /etc/environment"
-      # Set default compiz config to use ours
-      - "echo 'COMPIZ_CONFIG_PROFILE=aeroish' >> /etc/environment"
+      # Make compiz wrapper to use our compiz config profile to the compiz process only, as setting it globally breaks CCSM
+      - |
+        echo -e '#!/bin/sh\n\nif [ -n "${COMPIZ_CONFIG_PROFILE:-}" ]; then\n  exec /usr/bin/compiz "${@}"\nfi\n\nexport COMPIZ_CONFIG_PROFILE="aeroish"\nexec /usr/bin/compiz' > /usr/bin/compiz-aeroish && chmod +x /usr/bin/compiz-aeroish
       # Disable coredumps (untransparent, can leak some undesired info and can bloat the storage size)
       - "mkdir -p /usr/lib/systemd/system.conf.d /usr/lib/user/user.conf.d /etc/security/limits.d /usr/lib/sysctl.d"
       - "echo -e '[Manager]\nDumpCore=no' > /usr/lib/systemd/system.conf.d/60-disable-coredump.conf"
@@ -130,7 +131,7 @@ modules:
       - "echo 'kernel.core_pattern = |/bin/false' > /usr/lib/sysctl.d/55-disable-coredump.conf"
       # Set compiz as the default window manager and compositor
       - |
-        sed -i 's/value="xfwm4"/value="compiz"/g' /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-session.xml
+        sed -i 's/value="xfwm4"/value="compiz-aeroish"/g' /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-session.xml
       # Hide xfwm4 stuff in settings, since we don't use it
       - "echo 'Hidden=true' >> /usr/share/applications/xfce-wm-settings.desktop"
       - "echo 'Hidden=true' >> /usr/share/applications/xfce-wmtweaks-settings.desktop"
