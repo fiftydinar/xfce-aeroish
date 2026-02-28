@@ -10,6 +10,8 @@ if [ -n "$root_UUID" ] && grep -E -q "^$root_UUID[[:space:]]/[[:space:]]" /etc/f
     sed '/^'"$root_UUID"'[[:space:]]\/[[:space:]]/d' /etc/fstab > "$tmp"
     mv "$tmp" /etc/fstab
     rm -f "$tmp"
+    chown root:root /etc/fstab
+    chmod 0644 /etc/fstab
     touch "$stamp_file"
 else
     exit 0
