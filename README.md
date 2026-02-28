@@ -15,7 +15,7 @@ Aero-like XFCE custom image based on Arch Linux base bootc image.
 For the Aeroish GTK2, GTK3, GTK4 and LightDM theme, I credit:
 - ['ReVista' - x35gaming](https://github.com/x35gaming/revista), [slightly modified version by contrarybaton60](https://github.com/contrarybaton60/vista-stuff-xfce4/tree/main/gtk-theme)
 
-For the Qt5 and Qt6 theme, I credit:
+For the Qt5 and Qt6 Kvantum theme, I credit:
 - ['AeroThemePlasma' - wackyideas](https://gitgud.io/aeroshell/atp/aerothemeplasma)
 
 For the Emerald window decoration theme, I credit:
