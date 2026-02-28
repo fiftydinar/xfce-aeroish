@@ -172,6 +172,7 @@ modules:
     system:
       enabled:
         - remove-fstab-root.service # fix error about systemd-remount-fs failing
+        - bootc-fetch-apply-updates.timer
   - type: signing
   - type: script
     snippets:
