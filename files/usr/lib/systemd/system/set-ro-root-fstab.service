@@ -1,12 +1,12 @@
 [Unit]
-Description=Remove root fstab entry before systemd remount as ostree already covers root
+Description=Set root fstab entry to read-only before systemd remount as ostree already covers root
 DefaultDependencies=no
 After=systemd-fsck-root.service
 Before=local-fs-pre.target local-fs.target shutdown.target systemd-remount-fs.service
 ConditionPathExists=/etc/fstab
-ConditionPathExists=!/var/lib/remove-fstab-root.stamp
+ConditionPathExists=!/var/lib/set-ro-root.stamp
 
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/usr/bin/remove-fstab-root
+ExecStart=/usr/bin/set-ro-root
