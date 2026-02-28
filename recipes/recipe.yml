@@ -122,7 +122,7 @@ modules:
       - "echo 'QT_QPA_PLATFORMTHEME=qt5ct' >> /etc/environment"
       # Make compiz wrapper to use our compiz config profile to the compiz process only, as setting it globally breaks CCSM
       - |
-        echo -e '#!/bin/sh\n\nif [ -n "${COMPIZ_CONFIG_PROFILE:-}" ]; then\n  exec /usr/bin/compiz "${@}"\nfi\n\nexport COMPIZ_CONFIG_PROFILE="aeroish"\nexec /usr/bin/compiz "${@}"' > /usr/bin/compiz-aeroish && chmod +x /usr/bin/compiz-aeroish
+        echo -e '#!/bin/sh\n\nif [ -n "${COMPIZ_CONFIG_PROFILE:-}" ]; then\n  exec /usr/bin/compiz "${@}"\nfi\n\nexport COMPIZ_CONFIG_PROFILE="aeroish"\nexec /usr/bin/compiz' > /usr/bin/compiz-aeroish && chmod +x /usr/bin/compiz-aeroish
       # Disable coredumps (untransparent, can leak some undesired info and can bloat the storage size)
       - "mkdir -p /usr/lib/systemd/system.conf.d /usr/lib/user/user.conf.d /etc/security/limits.d /usr/lib/sysctl.d"
       - "echo -e '[Manager]\nDumpCore=no' > /usr/lib/systemd/system.conf.d/60-disable-coredump.conf"
