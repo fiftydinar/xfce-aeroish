@@ -35,7 +35,7 @@ For the default icon set, I credit:
 Now that we know what's the theming base and other defaults, I'll highlight what I added on top of it.
 
 - Image setup in shortly is explained like this:
-  - arch-base + dracut + bootc (with composefs) + SystemD + Xorg + LightDM + NetworkManager + chronyd + bluez + systemd-resolved + Pipewire + mesa (OpenGL) + vulkan + XFCE4 base + XFCE4 goodies like screenshotter and its applet plugins + theming
+  - arch-base + dracut + bootc (with composefs) + SystemD + Xorg + LightDM + NetworkManager + chronyd + bluez + systemd-resolved + Pipewire + mesa (OpenGL) + vulkan + compiz + emerald + XFCE4 base + XFCE4 goodies like screenshotter and its applet plugins + theming
 - Has automatic seamless system updates enabled (runs atomic `bootc upgrade` once per day).
 - Uses `compiz` as the compositing window manager and `emerald` as the window decorator.
 - Additional `compiz` defaults that enables blur, snap and grid plugins + blurs taskbar and start menu. Also modified grid plugin to use colors matching the default background.
