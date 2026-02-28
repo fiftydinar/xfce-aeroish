@@ -3,7 +3,6 @@ Description=Remove root fstab entry as ostree already covers root
 DefaultDependencies=no
 Before=systemd-remount-fs.service
 ConditionPathExists=/etc/fstab
-ConditionPathExists=!/var/lib/remove-fstab-root.stamp
 
 [Service]
 Type=oneshot
