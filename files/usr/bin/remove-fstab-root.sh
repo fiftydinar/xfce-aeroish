@@ -2,7 +2,7 @@
 
 set -eu
 
-stamp_file="/var/lib/set-ro-root-fstab.stamp"
+stamp_file="/var/lib/remove-fstab-root.stamp"
 root_UUID=$(sed -n 's/.*root=UUID=\([^[:space:]]\{36\}\).*/UUID=\1/p' /proc/cmdline)
 
 if [ -n "$root_UUID" ] && grep -E -q "^$root_UUID[[:space:]]/[[:space:]]" /etc/fstab && findmnt / | grep -q composefs && [ ! -L /boot/grub2/grub.cfg ]; then
