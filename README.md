@@ -51,16 +51,20 @@ Now that we know what's the theming base and other defaults, I'll highlight what
 ## How to install
 
 1. Download Fedora Vauxite ISO from [this URL](https://github.com/winblues/vauxite) and install it regularly
-2. When you boot to Vauxite, run this command below to switch to `xfce-aeroish` (requires internet connection):
+2. When you boot to Vauxite, run this command below in terminal to switch to `xfce-aeroish` (requires internet connection):
   - `sudo bootc switch ghcr.io/fiftydinar/xfce-aeroish:latest`
 3. Reboot the system
 4. Boot the Arch entry
-5. 1st boot will fail with blinking line in top-left, but 2nd one will be successful (rebase workaround which only applies on 2nd boot)
-6. Install the container signatures required for signed image of `xfce-aeroish` (requires internet connection):
+5. 1st boot will fail with blinking line in top-left, but 2nd one will be successful (rebase workaround which only takes effect on 2nd boot)
+6. Run this command in terminal, installs the container signatures required for signed image of `xfce-aeroish` (requires internet connection):
   - `sudo bootc switch --enforce-container-sigpolicy ghcr.io/fiftydinar/xfce-aeroish:latest`
-7. Reboot the system
-8. Remove `$HOME/.config/xfce4/xfconf/xfce-perchannel-xml/` folder, then log out and log in. This is to reset user XFCE settings if changed previously by Vauxite
-9. Enjoy!
+8. Run these commands to create the new user and set password for it (replace `[new_username]` with what you desire):
+  - `sudo useradd -m -G wheel [new_username] && sudo passwd [new_username]`
+9. Log out
+10. In login screen, select the new user and log in
+11. Run this command in terminal to delete the old user inherited from Fedora Vauxite (replace `[old_username]` with what it is):
+  - `sudo userdel -r [old_username]`
+12. Enjoy!
 
 ## Caveats
 
