@@ -151,7 +151,6 @@ modules:
       disabled:
         - systemd-timesyncd.service
       enabled:
-        - arch-group-rebase-fix.service # fix not booting on rebase
         - NetworkManager.service # network handling
         - systemd-resolved.service # DNS resolver
         - chronyd.service # Time-sync
@@ -168,6 +167,7 @@ modules:
     system:
       enabled:
         - remove-fstab-root.service # fix error about systemd-remount-fs failing
+        - arch-group-rebase-fix.service # fix not booting on rebase due to sysusers groups mismatch
         - bootc-fetch-apply-updates.timer
   - type: signing
   - type: script
