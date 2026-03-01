@@ -8,7 +8,7 @@ ConditionPathExists=!/var/lib/arch-group-rebase-fix.stamp
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/bin/sh -c '/usr/libexec/arch-group-rebase-fix /etc/group && /usr/libexec/arch-group-rebase-fix /etc/gshadow'
+ExecStart=/bin/sh -c '/usr/bin/arch-group-rebase-fix /etc/group && /usr/bin/arch-group-rebase-fix /etc/gshadow'
 ExecStart=/usr/bin/systemd-sysusers
 ExecStartPost=/usr/bin/touch /var/lib/arch-group-rebase-fix.stamp
 
