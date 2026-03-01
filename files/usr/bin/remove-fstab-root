@@ -2,13 +2,13 @@
 
 set -eu
 
-root_UUID=$(sed -n 's/.*root=UUID=\([^[:space:]]\{36\}\).*/UUID=\1/p' /proc/cmdline)
+root_UUID=$(sed -n 's/.*root=UUID=\([^[:space:]]\{36\}\).*/UUID=\1/p' /proc/cmdline || true)
 
 if [ -n "$root_UUID" ] && grep -E -q "^$root_UUID[[:space:]]/[[:space:]]" /etc/fstab && findmnt / | grep -q composefs && [ ! -L /boot/grub2/grub.cfg ]; then
     tmp=$(mktemp /tmp/fstab.XXXXXX) || exit 1
+    trap 'rm -f "$tmp"' EXIT INT TERM
     sed '/^'"$root_UUID"'[[:space:]]\/[[:space:]]/d' /etc/fstab > "$tmp"
     mv "$tmp" /etc/fstab
-    rm -f "$tmp"
     chown root:root /etc/fstab
     chmod 0644 /etc/fstab
     touch /var/lib/remove-fstab-root.stamp
