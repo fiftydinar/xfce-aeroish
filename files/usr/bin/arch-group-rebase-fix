@@ -1,14 +1,5 @@
 #!/bin/sh
-
 set -eu
-
-for i in 1 2 3 4 5; do
-    if [ -d "/var/lib" ] && touch /var/lib/.writable_test 2>/dev/null; then
-        rm /var/lib/.writable_test
-        break
-    fi
-    sleep 1
-done
 
 TARGET_FILE="/etc/group /etc/gshadow"
 
