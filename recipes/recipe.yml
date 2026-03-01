@@ -66,6 +66,7 @@ modules:
         - lightdm-gtk-greeter
         - xfce4-docklike-plugin
         - xfce4-whiskermenu-plugin
+        - xfce4-screensaver
         - xdg-user-dirs
         # CLI editor
         - nano
