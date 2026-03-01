@@ -1,17 +1,25 @@
 #!/bin/sh
 set -eu
 
-TARGET_FILE="${1}"
-[ -f "$TARGET_FILE" ] || exit 0
+TARGET_FILE="/etc/group /etc/gshadow"
 
 GROUPS_TO_REMOVE=$(cat /usr/lib/sysusers.d/*.conf | \
     grep -e "^g" | grep -v -e "^#" | awk 'NF {print $2}' | \
     grep -v -e "wheel" -e "root" -e "sudo" | \
     tr '\n' '|' | sed 's/|$//')
 
-if [ -n "${GROUPS_TO_REMOVE}" ]; then
-    sed -E "/^(${GROUPS_TO_REMOVE}):/d" "${TARGET_FILE}" > "${TARGET_FILE}.tmp"
-    mv "${TARGET_FILE}.tmp" "${TARGET_FILE}"
-    touch /var/lib/arch-group-rebase-fix.stamp
-    sync
-fi
+for target_file in $TARGET_FILE; do
+	[ -f "$target_file" ] || exit 0
+	if [ -n "${GROUPS_TO_REMOVE}" ]; then
+		sed -E "/^(${GROUPS_TO_REMOVE}):/d" "${target_file}" > "${target_file}.tmp"
+		mv "${target_file}.tmp" "${target_file}"
+		chown root:root "${target_file}"
+		if [ "$target_file" = "/etc/gshadow" ]; then
+			chmod 0000 "${target_file}"
+		else
+			chmod 644 "${target_file}"
+		fi
+		touch /var/lib/arch-group-rebase-fix.stamp
+		sync
+	fi
+done
