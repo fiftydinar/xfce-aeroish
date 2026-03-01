@@ -10,7 +10,6 @@ ConditionPathExists=!/var/lib/remove-fstab-root.stamp
 Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/bin/remove-fstab-root
-ExecStartPost=/usr/bin/touch /var/lib/remove-fstab-root.stamp
 
 [Install]
 WantedBy=local-fs.target

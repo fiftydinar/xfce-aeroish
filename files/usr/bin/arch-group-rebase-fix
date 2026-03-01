@@ -12,5 +12,7 @@ GROUPS_TO_REMOVE=$(cat /usr/lib/sysusers.d/*.conf | \
 if [ -n "${GROUPS_TO_REMOVE}" ]; then
     sed -E "/^(${GROUPS_TO_REMOVE}):/d" "${TARGET_FILE}" > "${TARGET_FILE}.tmp"
     mv "${TARGET_FILE}.tmp" "${TARGET_FILE}"
+    /usr/bin/systemd-sysusers
+    touch /var/lib/arch-group-rebase-fix.stamp
     sync
 fi

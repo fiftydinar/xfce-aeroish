@@ -9,8 +9,6 @@ ConditionPathExists=!/var/lib/arch-group-rebase-fix.stamp
 Type=oneshot
 RemainAfterExit=yes
 ExecStart=/bin/sh -c '/usr/bin/arch-group-rebase-fix /etc/group && /usr/bin/arch-group-rebase-fix /etc/gshadow'
-ExecStart=/usr/bin/systemd-sysusers
-ExecStartPost=/usr/bin/touch /var/lib/arch-group-rebase-fix.stamp
 
 [Install]
 WantedBy=sysinit.target
