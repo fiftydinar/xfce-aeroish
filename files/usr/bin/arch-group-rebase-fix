@@ -1,0 +1,16 @@
+#!/bin/sh
+set -eu
+
+TARGET_FILE="${1}"
+[ -f "$TARGET_FILE" ] || exit 0
+
+GROUPS_TO_REMOVE=$(cat /usr/lib/sysusers.d/*.conf | \
+    grep -e "^g" | grep -v -e "^#" | awk 'NF {print $2}' | \
+    grep -v -e "wheel" -e "root" -e "sudo" | \
+    tr '\n' '|' | sed 's/|$//')
+
+if [ -n "${GROUPS_TO_REMOVE}" ]; then
+    sed -E "/^(${GROUPS_TO_REMOVE}):/d" "${TARGET_FILE}" > "${TARGET_FILE}.tmp"
+    mv "${TARGET_FILE}.tmp" "${TARGET_FILE}"
+    sync
+fi

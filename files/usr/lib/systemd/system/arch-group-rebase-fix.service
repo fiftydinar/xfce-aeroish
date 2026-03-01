@@ -1,0 +1,16 @@
+[Unit]
+Description=Fix groups during rebase
+DefaultDependencies=no
+Before=systemd-sysusers.service sysinit.target
+After=local-fs.target
+ConditionPathExists=!/var/lib/arch-group-rebase-fix.stamp
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/sh -c '/usr/libexec/arch-group-rebase-fix /etc/group && /usr/libexec/arch-group-rebase-fix /etc/gshadow'
+ExecStart=/usr/bin/systemd-sysusers
+ExecStartPost=/usr/bin/touch /var/lib/arch-group-rebase-fix.stamp
+
+[Install]
+WantedBy=sysinit.target
