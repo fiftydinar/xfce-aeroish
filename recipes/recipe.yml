@@ -68,6 +68,7 @@ modules:
         - xfce4-whiskermenu-plugin
         - xfce4-screensaver
         - xdg-user-dirs
+        - gvfs
         # CLI editor
         - nano
         # Debugging
