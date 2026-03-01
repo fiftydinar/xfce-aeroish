@@ -1,6 +1,5 @@
 [Unit]
 Description=Remove root fstab entry as ostree already covers root
-DefaultDependencies=no
 Before=local-fs.target
 After=systemd-remount-fs.service var.mount
 ConditionPathExists=/etc/fstab
