@@ -2,7 +2,7 @@
 Description=Fix groups during rebase
 DefaultDependencies=no
 Before=systemd-sysusers.service sysinit.target
-After=local-fs.target
+After=systemd-remount-fs.service var.mount
 ConditionPathExists=!/var/lib/arch-group-rebase-fix.stamp
 
 [Service]
