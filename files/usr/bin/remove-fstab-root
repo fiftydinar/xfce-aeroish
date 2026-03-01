@@ -12,7 +12,6 @@ if [ -n "$root_UUID" ] && grep -E -q "^$root_UUID[[:space:]]/[[:space:]]" /etc/f
     chown root:root /etc/fstab
     chmod 0644 /etc/fstab
     touch /var/lib/remove-stab-root.stamp
-    sync
 else
     exit 0
 fi
