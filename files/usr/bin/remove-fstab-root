@@ -2,7 +2,7 @@
 
 set -eu
 
-root_UUID=$(sed -n 's/.*root=UUID=\([^[:space:]]\{36\}\).*/UUID=\1/p' /proc/cmdline || true)
+root_UUID=$(sed -n 's/.*root=UUID=\([^[:space:]]\{36\}\).*/UUID=\1/p' /proc/cmdline)
 
 if [ -n "$root_UUID" ] && grep -E -q "^$root_UUID[[:space:]]/[[:space:]]" /etc/fstab && findmnt / | grep -q composefs && [ ! -L /boot/grub2/grub.cfg ]; then
     tmp=$(mktemp /tmp/fstab.XXXXXX) || exit 1
