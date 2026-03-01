@@ -54,7 +54,6 @@ modules:
         - xfce4
         - xfce4-pulseaudio-plugin
         - pavucontrol
-        - cbatticon
         - xfce4-screenshooter
         - network-manager-applet
         - obsidian-icon-theme
