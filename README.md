@@ -69,11 +69,11 @@ Now that we know what's the theming base and other defaults, I'll highlight what
 
 This image is based on the experimental work of [arch-bootc](https://github.com/bootcrew/arch-bootc) base image, so some issues might arise.  
 
-1. GRUB bootloader cannot be updated
+- GRUB bootloader cannot be updated
   - It will stay on the same version basically forever, because [bootupd](https://github.com/coreos/bootupd) only works on Fedora and CoreOS based distributions.
-2. Installing or using other bootloader is unsupported
+- Installing or using other bootloader is unsupported
   - For the same reason as 1.
-3. Using different initramfs other than `dracut` is unsupported
+- Using different initramfs other than `dracut` is unsupported
   - Using `mkinitcpio` and others might work with some modifications, but upstream primarily uses `dracut`, which is also used here
-4. Secure boot doesn't work and is unsupported
+- Secure boot doesn't work and is unsupported
   - For the same reason as 1 + unsigned kernel by default
