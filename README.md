@@ -55,7 +55,6 @@ Now that we know what's the theming base and other defaults, I'll highlight what
   - `sudo bootc switch ghcr.io/fiftydinar/xfce-aeroish:latest`
 3. Reboot the system
 4. Boot the Arch entry
-5. 1st boot will fail with blinking line in top-left, but 2nd one will be successful (rebase workaround which only takes effect on 2nd boot)
 6. Run this command in terminal, installs the container signatures required for signed image of `xfce-aeroish` (requires internet connection):
   - `sudo bootc switch --enforce-container-sigpolicy ghcr.io/fiftydinar/xfce-aeroish:latest`
 8. Run these commands to create the new user and set password for it (replace `[new_username]` with what you desire):
