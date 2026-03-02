@@ -52,10 +52,7 @@ modules:
         # Desktop environment
         - xorg
         - xfce4
-        - xfce4-pulseaudio-plugin
-        - pavucontrol
         - xfce4-screenshooter
-        - network-manager-applet
         - obsidian-icon-theme
         - kvantum-qt5
         - kvantum
@@ -63,8 +60,12 @@ modules:
         - qt6ct
         - lightdm
         - lightdm-gtk-greeter
+        - pavucontrol
+        - network-manager-applet
+        - xfce4-pulseaudio-plugin
         - xfce4-docklike-plugin
         - xfce4-whiskermenu-plugin
+        - xfce4-xkb-plugin
         - xfce4-screensaver
         - xdg-user-dirs
         - gvfs
