@@ -8,7 +8,6 @@
 ! selected_fg_color:  #ffffff
 
 *mode:			one
-*timeout:		0:10:00
 *lock:			True
 *lockTimeout:		0:00:00
 
