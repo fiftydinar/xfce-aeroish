@@ -92,7 +92,7 @@ modules:
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh emerald"
       ## Install xscreensaver
       - |
-        cd /tmp/arch-tools && PRE_BUILD_CMDS="sed -i 's|--prefix=/usr|--prefix=/usr --without-dpms-ext|g' ./PKGBUILD" /tmp/arch-tools/make-aur-package.sh --archlinux-pkg xscreensaver
+        cd /tmp/arch-tools && PRE_BUILD_CMDS="sed -i 's|--prefix=/usr|--prefix=/usr --without-dpms-ext|g' ./PKGBUILD; sed -i 's| (on ?| (on_p ?|g' ./src/xscreensaver-*/driver/dpms.c"" /tmp/arch-tools/make-aur-package.sh --archlinux-pkg xscreensaver
       ## Install networkmanager-dispatcher-chrony
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh networkmanager-dispatcher-chrony"
       - |
