@@ -105,8 +105,6 @@ modules:
         sed -i 's/^#\s*\(en_US.UTF-8 UTF-8\)/\1/' /etc/locale.gen
       - "locale-gen"
       - "echo 'LANG=en_US.UTF-8' > /etc/locale.conf"
-      # Use custom chrony time config
-      - "echo -e 'pool pool.ntp.org iburst offline\ndriftfile /var/lib/chrony/drift\nmakestep 1.0 3\nrtcsync' > /etc/chrony.conf"
       # Set nano as the default editor
       - "echo -e 'VISUAL=nano\nEDITOR=nano' >> /etc/environment"
       # Set gtk-nocsd by default
@@ -117,12 +115,6 @@ modules:
       - "echo 'QT_QPA_PLATFORMTHEME=qt5ct' >> /etc/environment"
       # Set default compiz config to use ours
       - "echo 'COMPIZ_CONFIG_PROFILE=aeroish' >> /etc/environment"
-      # Disable coredumps (untransparent, can leak some undesired info and can bloat the storage size)
-      - "mkdir -p /usr/lib/systemd/system.conf.d /usr/lib/user/user.conf.d /etc/security/limits.d /usr/lib/sysctl.d"
-      - "echo -e '[Manager]\nDumpCore=no' > /usr/lib/systemd/system.conf.d/60-disable-coredump.conf"
-      - "echo -e '[Manager]\nDumpCore=no' > /usr/lib/user/user.conf.d/60-disable-coredump.conf"
-      - "echo -e '# Disable coredumps\n\n* hard core 0\n* soft core 0' > /etc/security/limits.d/60-disable-coredump.conf"
-      - "echo 'kernel.core_pattern = |/bin/false' > /usr/lib/sysctl.d/55-disable-coredump.conf"
       # Set compiz as the default window manager and compositor
       - |
         sed -i 's/value="xfwm4"/value="compiz"/g' /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-session.xml
