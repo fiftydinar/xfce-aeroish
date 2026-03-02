@@ -1,13 +1,15 @@
 #!/bin/sh
 
+NEWROOT="${NEWROOT:-/sysroot}"
+
 # Only run if the stamp file doesn't exist and /etc/group exists on the real root
 [ -f "${NEWROOT}/etc/arch-group-rebase-fix.stamp" ] && exit 0
 [ -f "${NEWROOT}/etc/group" ] || exit 0
 
-GROUPS_TO_REMOVE=$(cat "${NEWROOT}"/usr/lib/sysusers.d/*.conf 2>/dev/null | \
-    grep -e "^g" | grep -v -e "^#" | awk 'NF {print $2}' | \
+GROUPS_TO_REMOVE=$(grep -h "^g " "${NEWROOT}"/usr/lib/sysusers.d/*.conf 2>/dev/null | \
+    sed -e 's/^g  *//' -e 's/  *.*//' | \
     grep -v -e "wheel" -e "root" -e "sudo" | \
-    tr '\n' '|' | sed 's/|$//')
+    tr '\n' '|' | sed 's/||*/|/g; s/|$//; s/^|//')
 
 [ -n "${GROUPS_TO_REMOVE}" ] || exit 0
 
