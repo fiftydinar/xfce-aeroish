@@ -55,15 +55,15 @@ Now that we know what's the theming base and other defaults, I'll highlight what
   - `sudo bootc switch ghcr.io/fiftydinar/xfce-aeroish:latest`
 3. Reboot the system
 4. Boot the Arch entry
-6. Run this command in terminal, installs the container signatures required for signed image of `xfce-aeroish` (requires internet connection):
+5. Run this command in terminal, installs the container signatures required for signed image of `xfce-aeroish` (requires internet connection):
   - `sudo bootc switch --enforce-container-sigpolicy ghcr.io/fiftydinar/xfce-aeroish:latest`
-8. Run these commands to create the new user and set password for it (replace `[new_username]` with what you desire):
+6. Run these commands to create the new user and set password for it (replace `[new_username]` with what you desire):
   - `sudo useradd -m -G wheel [new_username] && sudo passwd [new_username]`
-9. Log out
-10. In login screen, select the new user and log in
-11. Run this command in terminal to delete the old user inherited from Fedora Vauxite (replace `[old_username]` with what it is):
+7. Log out
+8. In login screen, select the new user and log in
+9. Run this command in terminal to delete the old user inherited from Fedora Vauxite (replace `[old_username]` with what it is):
   - `sudo userdel -r [old_username]`
-12. Enjoy!
+10. Enjoy!
 
 ## Caveats
 
