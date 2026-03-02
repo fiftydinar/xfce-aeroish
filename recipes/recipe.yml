@@ -66,7 +66,7 @@ modules:
         - xfce4-docklike-plugin
         - xfce4-whiskermenu-plugin
         - xfce4-xkb-plugin
-        - xfce4-screensaver
+        - xscreensaver
         - xdg-user-dirs
         - gvfs
         # CLI editor

@@ -1,0 +1,45 @@
+! XScreenSaver app-defaults - Aeroish theme
+! Colors derived from the Aeroish GTK3 theme palette.
+!
+! bg_color:           #e8ecf6  (theme background)
+! fg_color:           #000000  (theme foreground)
+! base_color:         #ffffff  (input field background)
+! selected_bg_color:  #3399ff  (selection/highlight)
+! selected_fg_color:  #ffffff
+
+*mode:			one
+*timeout:		0:10:00
+*lock:			True
+*lockTimeout:		0:00:00
+
+! Use the desktop wallpaper as the screensaver content, so the
+! lock dialog appears on top of the familiar frosted-glass wallpaper.
+*programs:		GLSlideshow -root \n
+*chooseRandomImages:	False
+*grabDesktopImages:	False
+*grabVideoFrames:	False
+*imageDirectory:	/usr/share/backgrounds/frosted-glass.webp
+
+! Lock dialog colors - Aeroish palette
+*foreground:		#000000
+*background:		#e8ecf6
+*splash:		False
+
+! Fonts - matches Aeroish desktop font (Noto Sans)
+*font:			Noto Sans 10
+*boldFont:		Noto Sans Bold 11
+*dateFont:		Noto Sans 9
+*buttonFont:		Noto Sans 10
+*labelFont:		Noto Sans 10
+*passwdFont:		Noto Sans 10
+
+! Input field colors (matches base_color)
+*inputBackground:	#ffffff
+*inputForeground:	#000000
+
+! Selection highlight (matches selected_bg_color)
+*selectedBackground:	#3399ff
+*selectedForeground:	#ffffff
+
+! Progress/thermometer bar (matches selected_bg_color)
+*thermometer:		#3399ff
