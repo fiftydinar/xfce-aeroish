@@ -91,7 +91,8 @@ modules:
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh emerald"
       ## Install xscreensaver
       - |
-        cd /tmp/arch-tools && PRE_BUILD_CMDS="sed -i 's|--prefix=/usr|--prefix=/usr --without-dpms-ext|g' ./PKGBUILD; sed -i '/build() {/i prepare() {\\n  sed -i \"s| (on ?| (on_p ?|g\" ./xscreensaver-\$pkgver/driver/dpms.c\\n}' ./PKGBUILD" /tmp/arch-tools/make-aur-package.sh --archlinux-pkg xscreensaver        ## Install networkmanager-dispatcher-chrony
+        cd /tmp/arch-tools && PRE_BUILD_CMDS="sed -i 's|--prefix=/usr|--prefix=/usr --without-dpms-ext|g' ./PKGBUILD; sed -i '/build() {/i prepare() {\\n  sed -i \"s| (on ?| (on_p ?|g\" ./xscreensaver-\$pkgver/driver/dpms.c\\n}' ./PKGBUILD" /tmp/arch-tools/make-aur-package.sh --archlinux-pkg xscreensaver
+      ## Install networkmanager-dispatcher-chrony
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh networkmanager-dispatcher-chrony"
       - |
         cd /tmp/arch-tools && PRE_BUILD_CMDS="sed -i 's|LIBDIR=\"/usr/lib\"|LIBDIR=\"/usr/lib\" NOOPT=1|' ./PKGBUILD" /tmp/arch-tools/make-aur-package.sh gtk-nocsd-git
