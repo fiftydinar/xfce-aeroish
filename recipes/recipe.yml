@@ -166,8 +166,6 @@ modules:
   - type: systemd
     system:
       enabled:
-        - remove-fstab-root.service # fix error about systemd-remount-fs failing
-        - arch-group-rebase-fix.service # fix not booting on rebase due to sysusers groups mismatch
         - bootc-fetch-apply-updates.timer
   - type: signing
   - type: script
