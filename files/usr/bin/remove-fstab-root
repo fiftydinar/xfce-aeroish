@@ -11,7 +11,7 @@ if [ -n "$root_UUID" ] && grep -E -q "^$root_UUID[[:space:]]/[[:space:]]" /etc/f
     mv "$tmp" /etc/fstab
     chown root:root /etc/fstab
     chmod 0644 /etc/fstab
-    touch /var/lib/remove-fstab-root.stamp
+    touch /etc/remove-fstab-root.stamp
     sync
 else
     exit 0

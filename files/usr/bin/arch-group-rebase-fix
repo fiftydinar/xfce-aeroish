@@ -19,7 +19,7 @@ for target_file in $TARGET_FILE; do
 		else
 			chmod 644 "${target_file}"
 		fi
-		touch /var/lib/arch-group-rebase-fix.stamp
+		touch /etc/arch-group-rebase-fix.stamp
 		sync
 	fi
 done
