@@ -77,7 +77,7 @@ modules:
       # Install script to make AUR package easily
       - "wget --directory-prefix=/tmp/arch-tools/ https://raw.githubusercontent.com/pkgforge-dev/Anylinux-AppImages/refs/heads/main/useful-tools/make-aur-package.sh"
       - "chmod +x /tmp/arch-tools/make-aur-package.sh"
-      ## Install patched xfdesktop (for default background), compiz, emerald, networkmanager-dispatcher-chrony, gtk-nocsd-git, spice-guest-tools-windows
+      ## Install patched xfdesktop (for default background), compiz, emerald, xscreensaver, networkmanager-dispatcher-chrony, gtk-nocsd-git, spice-guest-tools-windows
       - |
         pacman -Rns --noconfirm xfdesktop && cd /tmp/arch-tools && PRE_BUILD_CMDS="sed -i 's|--prefix=/usr|--prefix=/usr --with-default-backdrop-filename=/usr/share/backgrounds/frosted-glass.webp|g' ./PKGBUILD" /tmp/arch-tools/make-aur-package.sh --archlinux-pkg xfdesktop
       ## Install gtk2
@@ -90,9 +90,8 @@ modules:
         sed -i 's|USE_EMERALD="no"|USE_EMERALD="yes"|g' /usr/bin/compiz-decorator
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh emerald"
       ## Install xscreensaver
-      - |
-        cd /tmp/arch-tools && PRE_BUILD_CMDS="sed -i 's|--prefix=/usr|--prefix=/usr --without-dpms-ext|g' ./PKGBUILD; sed -i 's| (on ?| (on_p ?|g' ./src/xscreensaver-*/driver/dpms.c"" /tmp/arch-tools/make-aur-package.sh --archlinux-pkg xscreensaver
-      ## Install networkmanager-dispatcher-chrony
+        cd /tmp/arch-tools && PRE_BUILD_CMDS="sed -i 's|--prefix=/usr|--prefix=/usr --without-dpms-ext|g' ./PKGBUILD; sed -i 's| (on ?| (on_p ?|g' ./src/xscreensaver-*/driver/dpms.c" /tmp/arch-tools/make-aur-package.sh --archlinux-pkg xscreensaver
+        ## Install networkmanager-dispatcher-chrony
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh networkmanager-dispatcher-chrony"
       - |
         cd /tmp/arch-tools && PRE_BUILD_CMDS="sed -i 's|LIBDIR=\"/usr/lib\"|LIBDIR=\"/usr/lib\" NOOPT=1|' ./PKGBUILD" /tmp/arch-tools/make-aur-package.sh gtk-nocsd-git
