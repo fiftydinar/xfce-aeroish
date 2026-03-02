@@ -81,7 +81,7 @@ modules:
       - |
         pacman -Rns --noconfirm xfdesktop && cd /tmp/arch-tools && PRE_BUILD_CMDS="sed -i 's|--prefix=/usr|--prefix=/usr --with-default-backdrop-filename=/usr/share/backgrounds/frosted-glass.webp|g' ./PKGBUILD" /tmp/arch-tools/make-aur-package.sh --archlinux-pkg xfdesktop
       ## Install patched xfce4-whisker-menu-plugin
-      - "cd /tmp/arch-tools && wget --directory-prefix=/tmp/arch-tools/xfce4-whisker-menu-plugin https://raw.githubusercontent.com/fiftydinar/xfce-aeroish/refs/heads/main/patches/fix-struts-menu-position.patch && wget --directory-prefix=/tmp/arch-tools/xfce4-whisker-menu-plugin https://raw.githubusercontent.com/fiftydinar/xfce-aeroish/refs/heads/main/patches/fix-struts-menu-position.awk && PRE_BUILD_CMDS="awk -f inject-whiskermenu-patch.awk ./PKGBUILD > ./PKGBUILD.tmp && mv ./PKGBUILD.tmp ./PKGBUILD" && /tmp/arch-tools/make-aur-package.sh --archlinux-pkg xfce4-whisker-menu-plugin"
+      - "cd /tmp/arch-tools && wget --directory-prefix=/tmp/arch-tools/xfce4-whisker-menu-plugin https://raw.githubusercontent.com/fiftydinar/xfce-aeroish/refs/heads/main/patches/fix-struts-menu-position.patch && wget --directory-prefix=/tmp/arch-tools/xfce4-whisker-menu-plugin https://raw.githubusercontent.com/fiftydinar/xfce-aeroish/refs/heads/main/patches/fix-struts-menu-position.awk && chmod +x ./fix-struts-menu-position.awk && PRE_BUILD_CMDS="awk -f fix-struts-menu-position.awk ./PKGBUILD > ./PKGBUILD.tmp && mv ./PKGBUILD.tmp ./PKGBUILD" && /tmp/arch-tools/make-aur-package.sh --archlinux-pkg xfce4-whisker-menu-plugin"
       ## Install gtk2
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh gtk2"
       ## Install libwnck
