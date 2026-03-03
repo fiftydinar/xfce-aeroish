@@ -428,4 +428,22 @@ XfdesktopIconView.view {
     -XfdesktopIconView-cell-padding: 5;
 }
 
+/* xfce4-screensaver lock screen panel styling.
+ * The lock screen reuses the same GTK widget names as lightdm-gtk-greeter:
+ * - #panel_window is the top bar (hostname, datetime, notification icon)
+ * - #login_window is the unlock dialog */
+
+.xfce4-panel.background#panel_window {
+    color: #ffffff;
+    text-shadow: 0 1px rgba(0,0,0,0.5);
+}
+
+.xfce4-panel.background#panel_window label {
+    color: #ffffff;
+}
+
+.xfce4-panel.background#panel_window image {
+    color: #ffffff;
+}
+
 /* End of xfce4 styling. */
