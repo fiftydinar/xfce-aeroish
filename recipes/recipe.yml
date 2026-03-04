@@ -104,7 +104,7 @@ modules:
       ## Install spice-guest-tools-windows
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh spice-guest-tools-windows"
       ## Install dwarfs (for AppImage thumbnailer)
-      - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh dwarfs"
+      - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh dwarfs-bin"
       # Cleanup
       - "rm -r /tmp/arch-tools/"
       # Install AppImage Thumbnailer (sat)
