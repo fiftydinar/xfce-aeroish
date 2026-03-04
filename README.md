@@ -8,7 +8,8 @@
 > [!IMPORTANT]  
 > For any theming issues, report here, don't report to the upstream developers.
 
-Aero-like XFCE custom image based on Arch Linux base bootc image. Tries to incorporate as many elements from Aero as possible, but it won't be a 100% copy of Windows on purpose.
+Aero-like XFCE custom image based on Arch Linux base bootc image.  
+Tries to incorporate as many elements from Aero as possible, but it won't be a 100% copy of Windows on purpose.
 
 ## Theming Credits and Base
 
