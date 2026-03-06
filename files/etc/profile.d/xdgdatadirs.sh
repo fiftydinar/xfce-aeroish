@@ -1,20 +1,31 @@
 XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
 LOCAL_SHARE=/usr/local/share
 
-# /usr/local/share
-case ":${XDG_DATA_DIRS:-}:" in
-  *":${LOCAL_SHARE}:"*)
-    ;;
-  *)
-    export XDG_DATA_DIRS="${XDG_DATA_DIRS:+${XDG_DATA_DIRS}:}${LOCAL_SHARE}"
-    ;;
-esac
+result=""
 
-# XDG_DATA_HOME
-case ":${XDG_DATA_DIRS:-}:" in
-  *":${XDG_DATA_HOME}:"*)
-    ;;
-  *)
-    export XDG_DATA_DIRS="${XDG_DATA_HOME}${XDG_DATA_DIRS:+:}${XDG_DATA_DIRS}"
-    ;;
-esac
+_add_if_missing() {
+  [ -z "$1" ] && return
+  case ":$result:" in
+    *":$1:"*) return ;;
+  esac
+  if [ -z "$result" ]; then
+    result="$1"
+  else
+    result="$result:$1"
+  fi
+}
+
+_add_if_missing "$XDG_DATA_HOME"
+_add_if_missing "$LOCAL_SHARE"
+
+rest=${XDG_DATA_DIRS:-}
+while [ -n "$rest" ]; do
+  entry=${rest%%:*}
+  _add_if_missing "$entry"
+  case "$rest" in
+    *:*) rest=${rest#*:} ;;
+    *) rest= ;;
+  esac
+done
+
+export XDG_DATA_DIRS="$result"
