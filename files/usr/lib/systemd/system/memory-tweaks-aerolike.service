@@ -1,0 +1,11 @@
+[Unit]
+Description=Dynamic memory tweaks
+Before=systemd-user-sessions.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/memory-tweaks-aerolike
+
+[Install]
+WantedBy=multi-user.target
