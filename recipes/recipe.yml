@@ -110,7 +110,7 @@ modules:
       ## Install dwarfs (for AppImage thumbnailer)
       - "cd /tmp/arch-tools && /tmp/arch-tools/make-aur-package.sh dwarfs-bin"
       # Install bash-color-prompt
-      - "wget --retry-connrefused --tries=30 --directory-prefix=/tmp/arch-tools/bash-color-prompt https://raw.githubusercontent.com/fiftydinar/xfce-aerolike/refs/heads/main/patches/bash-color-prompt/PKGBUILD && cd /tmp/arch-tools/bash-color-prompt && make-aur-package"
+      - "wget --retry-connrefused --tries=30 --directory-prefix=/tmp/arch-tools/bash-color-prompt https://raw.githubusercontent.com/fiftydinar/xfce-aerolike/refs/heads/main/patches/bash-color-prompt/PKGBUILD && cd /tmp/arch-tools/bash-color-prompt && /tmp/arch-tools/make-aur-package.sh"
       # Cleanup
       - "rm -r /tmp/arch-tools/"
       # Install AppImage Thumbnailer (sat)
