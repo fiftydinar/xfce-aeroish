@@ -8,20 +8,7 @@ depends=('bash')
 makedepends=('perl')
 source=("https://github.com/juhp/bash-color-prompt/archive/refs/heads/main.tar.gz")
 sha256sums=('SKIP')
-
-pkgver() {
-  for d in "${srcdir}"/*bash-color-prompt* "${srcdir}"/bash-color-prompt*; do
-    if [ -f "${d}/VERSION" ]; then
-      cat "${d}/VERSION"
-      return 0
-    fi
-  done
-  if [ -f "${srcdir}/VERSION" ]; then
-    cat "${srcdir}/VERSION"
-    return 0
-  fi
-  echo "0.0.0"
-}
+pkgver=$(wget --tries=30 --retry-connrefused -qO- https://raw.githubusercontent.com/juhp/bash-color-prompt/main/VERSION 2>/dev/null || echo "0.0.0")
 
 prepare() {
   cd "${srcdir}/bash-color-prompt-main"
